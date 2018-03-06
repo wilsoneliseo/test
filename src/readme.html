@@ -1,0 +1,1605 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+"http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
+<head>
+<title>readme</title>
+<!-- 2018-03-05 lun 21:00 -->
+<meta  http-equiv="Content-Type" content="text/html;charset=utf-8" />
+<meta  name="generator" content="Org-mode" />
+<meta  name="author" content="wegt" />
+<style type="text/css">
+ <!--/*--><![CDATA[/*><!--*/
+  .title  { text-align: center; }
+  .todo   { font-family: monospace; color: red; }
+  .done   { color: green; }
+  .tag    { background-color: #eee; font-family: monospace;
+            padding: 2px; font-size: 80%; font-weight: normal; }
+  .timestamp { color: #bebebe; }
+  .timestamp-kwd { color: #5f9ea0; }
+  .right  { margin-left: auto; margin-right: 0px;  text-align: right; }
+  .left   { margin-left: 0px;  margin-right: auto; text-align: left; }
+  .center { margin-left: auto; margin-right: auto; text-align: center; }
+  .underline { text-decoration: underline; }
+  #postamble p, #preamble p { font-size: 90%; margin: .2em; }
+  p.verse { margin-left: 3%; }
+  pre {
+    border: 1px solid #ccc;
+    box-shadow: 3px 3px 3px #eee;
+    padding: 8pt;
+    font-family: monospace;
+    overflow: auto;
+    margin: 1.2em;
+  }
+  pre.src {
+    position: relative;
+    overflow: visible;
+    padding-top: 1.2em;
+  }
+  pre.src:before {
+    display: none;
+    position: absolute;
+    background-color: white;
+    top: -10px;
+    right: 10px;
+    padding: 3px;
+    border: 1px solid black;
+  }
+  pre.src:hover:before { display: inline;}
+  pre.src-sh:before    { content: 'sh'; }
+  pre.src-bash:before  { content: 'sh'; }
+  pre.src-emacs-lisp:before { content: 'Emacs Lisp'; }
+  pre.src-R:before     { content: 'R'; }
+  pre.src-perl:before  { content: 'Perl'; }
+  pre.src-java:before  { content: 'Java'; }
+  pre.src-sql:before   { content: 'SQL'; }
+
+  table { border-collapse:collapse; }
+  caption.t-above { caption-side: top; }
+  caption.t-bottom { caption-side: bottom; }
+  td, th { vertical-align:top;  }
+  th.right  { text-align: center;  }
+  th.left   { text-align: center;   }
+  th.center { text-align: center; }
+  td.right  { text-align: right;  }
+  td.left   { text-align: left;   }
+  td.center { text-align: center; }
+  dt { font-weight: bold; }
+  .footpara:nth-child(2) { display: inline; }
+  .footpara { display: block; }
+  .footdef  { margin-bottom: 1em; }
+  .figure { padding: 1em; }
+  .figure p { text-align: center; }
+  .inlinetask {
+    padding: 10px;
+    border: 2px solid gray;
+    margin: 10px;
+    background: #ffffcc;
+  }
+  #org-div-home-and-up
+   { text-align: right; font-size: 70%; white-space: nowrap; }
+  textarea { overflow-x: auto; }
+  .linenr { font-size: smaller }
+  .code-highlighted { background-color: #ffff00; }
+  .org-info-js_info-navigation { border-style: none; }
+  #org-info-js_console-label
+    { font-size: 10px; font-weight: bold; white-space: nowrap; }
+  .org-info-js_search-highlight
+    { background-color: #ffff00; color: #000000; font-weight: bold; }
+  /*]]>*/-->
+</style>
+<script type="text/javascript">
+/*
+@licstart  The following is the entire license notice for the
+JavaScript code in this tag.
+
+Copyright (C) 2012-2013 Free Software Foundation, Inc.
+
+The JavaScript code in this tag is free software: you can
+redistribute it and/or modify it under the terms of the GNU
+General Public License (GNU GPL) as published by the Free Software
+Foundation, either version 3 of the License, or (at your option)
+any later version.  The code is distributed WITHOUT ANY WARRANTY;
+without even the implied warranty of MERCHANTABILITY or FITNESS
+FOR A PARTICULAR PURPOSE.  See the GNU GPL for more details.
+
+As additional permission under GNU GPL version 3 section 7, you
+may distribute non-source (e.g., minimized or compacted) forms of
+that code without the copy of the GNU GPL normally required by
+section 4, provided you include this license notice and a URL
+through which recipients can access the Corresponding Source.
+
+
+@licend  The above is the entire license notice
+for the JavaScript code in this tag.
+*/
+<!--/*--><![CDATA[/*><!--*/
+ function CodeHighlightOn(elem, id)
+ {
+   var target = document.getElementById(id);
+   if(null != target) {
+     elem.cacheClassElem = elem.className;
+     elem.cacheClassTarget = target.className;
+     target.className = "code-highlighted";
+     elem.className   = "code-highlighted";
+   }
+ }
+ function CodeHighlightOff(elem, id)
+ {
+   var target = document.getElementById(id);
+   if(elem.cacheClassElem)
+     elem.className = elem.cacheClassElem;
+   if(elem.cacheClassTarget)
+     target.className = elem.cacheClassTarget;
+ }
+/*]]>*///-->
+</script>
+</head>
+<body>
+<div id="content">
+<h1 class="title">readme</h1>
+<div id="table-of-contents">
+<h2>Table of Contents</h2>
+<div id="text-table-of-contents">
+<ul>
+<li><a href="#sec-1">1. Sobre este archivo y repositorio</a></li>
+<li><a href="#sec-2">2. Clases Internas</a></li>
+<li><a href="#sec-3">3. Aplicaciones gráficas</a></li>
+<li><a href="#sec-4">4. Eventos</a>
+<ul>
+<li><a href="#sec-4-1">4.1. Overview</a>
+<ul>
+<li><a href="#sec-4-1-1">4.1.1. [video65] Eventos I. Teoría sobre eventos</a></li>
+<li><a href="#sec-4-1-2">4.1.2. [video66] Eventos II.</a></li>
+<li><a href="#sec-4-1-3">4.1.3. [video67] Eventos III</a></li>
+</ul>
+</li>
+<li><a href="#sec-4-2">4.2. Eventos de ventana</a>
+<ul>
+<li><a href="#sec-4-2-1">4.2.1. [video68] Eventos IV. Eventos de ventana I.</a></li>
+<li><a href="#sec-4-2-2">4.2.2. [video69] Eventos V. Eventos de ventana II</a></li>
+<li><a href="#sec-4-2-3">4.2.3. [video70] Eventos VI Eventos de ventana III.</a></li>
+</ul>
+</li>
+<li><a href="#sec-4-3">4.3. Eventos de teclado</a>
+<ul>
+<li><a href="#sec-4-3-1">4.3.1. [video71] Eventos VII. Eventos de teclado I</a></li>
+</ul>
+</li>
+<li><a href="#sec-4-4">4.4. Eventos de ratón</a>
+<ul>
+<li><a href="#sec-4-4-1">4.4.1. [video72] Eventos VIII. Eventos de ratón I</a></li>
+<li><a href="#sec-4-4-2">4.4.2. [video73] Eventos IX. Eventos de ratón II</a></li>
+</ul>
+</li>
+<li><a href="#sec-4-5">4.5. Eventos de foco</a>
+<ul>
+<li><a href="#sec-4-5-1">4.5.1. [video74] Eventos X. Eventos de foco I</a></li>
+<li><a href="#sec-4-5-2">4.5.2. [video75] Eventos XI. Eventos de foco II</a></li>
+</ul>
+</li>
+<li><a href="#sec-4-6">4.6. Multiples fuentes de eventos</a>
+<ul>
+<li><a href="#sec-4-6-1">4.6.1. [video76] Eventos XII. Múltiples fuentes I</a></li>
+<li><a href="#sec-4-6-2">4.6.2. [video77] Eventos XIII. Múltiples fuentes II</a></li>
+<li><a href="#sec-4-6-3">4.6.3. [video78] Eventos XIV. Múltiples fuentes III</a></li>
+<li><a href="#sec-4-6-4">4.6.4. [video79] Eventos XV. Múltiples fuentes IV</a></li>
+<li><a href="#sec-4-6-5">4.6.5. [video80] Eventos XVI. Múltiples oyentes</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li><a href="#sec-5">5. Layouts</a>
+<ul>
+<li><a href="#sec-5-1">5.1. [video81] Layouts I. Componentes Swing</a></li>
+<li><a href="#sec-5-2">5.2. [video82] Layouts II</a></li>
+<li><a href="#sec-5-3">5.3. [video83] Layouts III</a></li>
+<li><a href="#sec-5-4">5.4. [video84] Layouts IV</a></li>
+<li><a href="#sec-5-5">5.5. [video85] Layouts V</a></li>
+</ul>
+</li>
+<li><a href="#sec-6">6. Componentes Swing</a>
+<ul>
+<li><a href="#sec-6-1">6.1. Cuadros de texto</a>
+<ul>
+<li><a href="#sec-6-1-1">6.1.1. [video86] Cuadros de texto I</a></li>
+<li><a href="#sec-6-1-2">6.1.2. [video87] Cuadros de texto II</a></li>
+<li><a href="#sec-6-1-3">6.1.3. [video88] Eventos en cuadros de texto I</a></li>
+<li><a href="#sec-6-1-4">6.1.4. [video89] Eventos en cuadros de texto II</a></li>
+</ul>
+</li>
+<li><a href="#sec-6-2">6.2. Áreas de texto</a>
+<ul>
+<li><a href="#sec-6-2-1">6.2.1. [video90] Áreas de texto I</a></li>
+<li><a href="#sec-6-2-2">6.2.2. [video91] Áreas de texto II</a></li>
+</ul>
+</li>
+<li><a href="#sec-6-3">6.3. CheckBox</a>
+<ul>
+<li><a href="#sec-6-3-1">6.3.1. [video92] CheckBox</a></li>
+</ul>
+</li>
+<li><a href="#sec-6-4">6.4. Botones de radio</a>
+<ul>
+<li><a href="#sec-6-4-1">6.4.1. [video93] Botones de radio I</a></li>
+<li><a href="#sec-6-4-2">6.4.2. [video94] Botones de radio II</a></li>
+</ul>
+</li>
+<li><a href="#sec-6-5">6.5. ComboBox</a>
+<ul>
+<li><a href="#sec-6-5-1">6.5.1. [video95] ComboBox</a></li>
+</ul>
+</li>
+<li><a href="#sec-6-6">6.6. JSlider</a>
+<ul>
+<li><a href="#sec-6-6-1">6.6.1. [video96] JSlider I</a></li>
+<li><a href="#sec-6-6-2">6.6.2. [video97] JSlider II</a></li>
+</ul>
+</li>
+<li><a href="#sec-6-7">6.7. JSpinner</a>
+<ul>
+<li><a href="#sec-6-7-1">6.7.1. [video98] JSpinner I</a></li>
+<li><a href="#sec-6-7-2">6.7.2. [video99] JSpinner II</a></li>
+</ul>
+</li>
+<li><a href="#sec-6-8">6.8. [video100] Creación de menús I</a></li>
+</ul>
+</li>
+</ul>
+</div>
+</div>
+<div id="outline-container-sec-1" class="outline-2">
+<h2 id="sec-1"><span class="section-number-2">1</span> Sobre este archivo y repositorio</h2>
+<div class="outline-text-2" id="text-1">
+<p>
+Este archivo documenta algunos videos del <a href="https://www.youtube.com/watch?v=coK4jM5wvko&list=PLU8oAlHdN5BktAXdEVCLUYzvDyqRQJ2lk">curso de Java desde 0</a> dado
+en el canal <a href="https://www.youtube.com/user/pildorasinformaticas/featured">pildorasinformaticas</a> de Juan Gómez.
+</p>
+
+<p>
+El fin de esto es dar una especie de índice para que sea cómodo
+conocer que es lo que se trata en cada video.
+</p>
+
+<p>
+Se incluye el título del video, un enlace al mismo, una breve
+descripción del tema que se trate y el producto que se obtiene al
+llegar al final del video (normalmente la interfaz gráfica). Todo esto
+sacado de la explicación, conocimiento, he incluso palabras de Juan
+Gómez.
+</p>
+
+<p>
+El código de cada video, está disponible en paquetes en este
+repositorio. El nombre de cada paquete se toma del número del video
+correspondiente.
+</p>
+</div>
+</div>
+
+<div id="outline-container-sec-2" class="outline-2">
+<h2 id="sec-2"><span class="section-number-2">2</span> Clases Internas</h2>
+<div class="outline-text-2" id="text-2">
+<dl class="org-dl">
+<dt> video51 </dt><dd>interfaces III
+</dd>
+<dt> video52 </dt><dd>interfaces IV
+</dd>
+<dt> video53 </dt><dd>clases internas I
+</dd>
+<dt> video54 </dt><dd>clases internas II
+</dd>
+</dl>
+</div>
+</div>
+
+<div id="outline-container-sec-3" class="outline-2">
+<h2 id="sec-3"><span class="section-number-2">3</span> Aplicaciones gráficas</h2>
+<div class="outline-text-2" id="text-3">
+<dl class="org-dl">
+<dt> video55 </dt><dd>Swing I
+</dd>
+<dt> video56 </dt><dd>Swing II. Colocando el Frame I
+</dd>
+<dt> video57 </dt><dd>Swing III. Colocando el Frame II
+</dd>
+<dt> video58 </dt><dd>Swing IV. Escribiendo en el Frame
+</dd>
+<dt> video59 </dt><dd>Swing V. Dibujando en el Frame
+</dd>
+</dl>
+</div>
+</div>
+
+<div id="outline-container-sec-4" class="outline-2">
+<h2 id="sec-4"><span class="section-number-2">4</span> Eventos</h2>
+<div class="outline-text-2" id="text-4">
+</div><div id="outline-container-sec-4-1" class="outline-3">
+<h3 id="sec-4-1"><span class="section-number-3">4.1</span> Overview</h3>
+<div class="outline-text-3" id="text-4-1">
+</div><div id="outline-container-sec-4-1-1" class="outline-4">
+<h4 id="sec-4-1-1"><span class="section-number-4">4.1.1</span> [<a href="https://www.youtube.com/watch?v=b8rkMBnXuwk&index=65&list=PLU8oAlHdN5BktAXdEVCLUYzvDyqRQJ2lk">video65</a>] Eventos I. Teoría sobre eventos</h4>
+<div class="outline-text-4" id="text-4-1-1">
+<p>
+Entre los tipos de eventos podemos mencionar: (min 6:01)
+</p>
+<ul class="org-ul">
+<li>Evento de raton, al hacer click
+</li>
+<li>Eventos de teclado, al pulsar alguna tecla
+</li>
+<li>Eventos de ventana, al redimensionar, abrir, cerrar una ventana
+</li>
+</ul>
+
+<p>
+Eventos: fuentes y oyentes (min 8:04)
+</p>
+
+<pre class="example">
+                      +-----------------------------+         +-------------+
+  		    / | ¿Qué desencadena la acción? |--------&gt;|Objeto evento|
+                   /  +-----------------------------+         +-------------+
+ 	          /	       ej:click
+ 	         /
+ 	        /
++-------------+/      +-------------------------------+       +-------------+
+|tres factores|------ | ¿Quién desencadena la acción? |------&gt;|Objeto Fuente|
++-------------+\	  +-------------------------------+       +-------------+
+ 		\	     ej: click boton, click menu, etc.
+ 		 \
+ 		  \
+ 		   \   +-------------------------+            +---------------+
+ 		    \  |¿Quien recibe la accion? |-----------&gt;|Objeto Listener|
+ 		       +-------------------------+	          +---------------+
+ 		                 ej: JPanel
+</pre>
+
+<p>
+Para manejar <i>Objetos Evento</i> lo modela la clase <code>EventObject</code>. Las
+mas utilizadas son sus clases hijas: <code>ActionEvent</code> y <code>WindowEvent</code>.
+</p>
+
+<p>
+NOTA: este paquete (porque asi fue el video) solo sirve de introducción
+a los eventos, puesto que no se realiza nada gráfico en concreto, solo
+se dejan las clases para reanudar la construcción en el siguiente video.
+</p>
+</div>
+</div>
+
+
+<div id="outline-container-sec-4-1-2" class="outline-4">
+<h4 id="sec-4-1-2"><span class="section-number-4">4.1.2</span> [<a href="https://www.youtube.com/watch?v=zwSub29uORc&list=PLU8oAlHdN5BktAXdEVCLUYzvDyqRQJ2lk&index=66">video66</a>] Eventos II.</h4>
+<div class="outline-text-4" id="text-4-1-2">
+<p>
+Se crea un JFrame con tres botones que al hacer click se pinta de
+azul, amarillo o rojo el JPanel que esta contenido en el JFrame.
+</p>
+</div>
+</div>
+
+<div id="outline-container-sec-4-1-3" class="outline-4">
+<h4 id="sec-4-1-3"><span class="section-number-4">4.1.3</span> [<a href="https://www.youtube.com/watch?v=R8fnLtVuLxA&list=PLU8oAlHdN5BktAXdEVCLUYzvDyqRQJ2lk&index=67">video67</a>] Eventos III</h4>
+<div class="outline-text-4" id="text-4-1-3">
+<p>
+Se reliza lo mismo que el <i>video66</i> pero haciendo uso del concepto de
+clases internas.
+</p>
+</div>
+</div>
+</div>
+
+<div id="outline-container-sec-4-2" class="outline-3">
+<h3 id="sec-4-2"><span class="section-number-3">4.2</span> Eventos de ventana</h3>
+<div class="outline-text-3" id="text-4-2">
+</div><div id="outline-container-sec-4-2-1" class="outline-4">
+<h4 id="sec-4-2-1"><span class="section-number-4">4.2.1</span> [<a href="https://www.youtube.com/watch?v=R8fnLtVuLxA&list=PLU8oAlHdN5BktAXdEVCLUYzvDyqRQJ2lk&index=67">video68</a>] Eventos IV. Eventos de ventana I.</h4>
+<div class="outline-text-4" id="text-4-2-1">
+<p>
+Es un poco mas laborioso ya que para eventos de ventana hay que
+implementar la interfaz <code>WindowListener</code>. Esta interfaz requiere que se
+implemente siete métodos. Puede implementarse solo uno, o dos métodos,
+pero eso se verá en el siguiente video.
+</p>
+
+<p>
+En este video se crean dos ventanas tituladas "Ventana 1" y "Ventana
+2". Se les pone ha escuchar los Eventos de ventana.
+</p>
+</div>
+</div>
+
+<div id="outline-container-sec-4-2-2" class="outline-4">
+<h4 id="sec-4-2-2"><span class="section-number-4">4.2.2</span> [<a href="https://www.youtube.com/watch?v=QZrNfAJG3fA&list=PLU8oAlHdN5BktAXdEVCLUYzvDyqRQJ2lk&index=69">video69</a>] Eventos V. Eventos de ventana II</h4>
+<div class="outline-text-4" id="text-4-2-2">
+<p>
+Es bastante labo.ioso ..abajar e entos de ventana por la interfaz
+<code>WindowListener</code> ..plementa un m      de métodos y eso nos obliga a
+proo.amar todos ellos. Existe una  olución en Java más elegante, a la
+horo de pr.gramar eventos de ventana, que consiste en eluso de <i>clases
+adaptadoras</i> (Adapter classes).
+</p>
+
+<p>
+Las <i>clases adaptadoras</i> es una solución para que el código de
+programación sea mas corto, limpio y claro.
+</p>
+
+<pre class="example">
++--------------+	  +-------------------+		 +------------------+
+|KeyAdapter (C)|  	  | WindowAdapter (C) | 	 | MouseAdapter (C) |
++--------------+	  +-------------+-----+		 +------------------+
+				     |
+      +------------------------+	|    +-------------------------+
+      | WindowFocusListener (I)|&lt;----+---&gt;| WindowStateListener (I) |
+      +------------------------+	|    +-------------------------+
+				     |
+      +------------------------+     |    +--------------------+
+      | WindowListener (I)     |&lt;----+---&gt;|EventListener (I)   |
+      +------------------------+          +--------------------+
+</pre>
+
+<p>
+<code>WindowAdapter</code> es una clase adaptadora que deberíamos utilizar cuando
+creemos programas que responden a eventos de ventana. Esta clase
+implementa cuatro interfaces (las etiquetadas con (I) en el diagrama
+de arriba).
+</p>
+
+<p>
+En este paquete se modifica la del <i>video68</i>  utilizando la
+clase <code>WindowAdapter</code>.
+</p>
+
+<p>
+Hay programadores que consideran mejor extender la interfaz
+<code>WindowListener</code> he implementar todos sus métodos y no heredar de la
+clase <code>WindowAdapter</code>.
+</p>
+</div>
+</div>
+
+<div id="outline-container-sec-4-2-3" class="outline-4">
+<h4 id="sec-4-2-3"><span class="section-number-4">4.2.3</span> [<a href="https://www.youtube.com/watch?v=H_1kldp-d7I&index=70&list=PLU8oAlHdN5BktAXdEVCLUYzvDyqRQJ2lk">video70</a>] Eventos VI Eventos de ventana III.</h4>
+<div class="outline-text-4" id="text-4-2-3">
+<p>
+Como controlar los estados de la ventana. Por ejemplo como
+desencadenar una acción cuando una ventana cambia de estado (cuando es
+minimizada, maximizada, restaurada, etc).
+</p>
+
+<pre class="example">
+	+---------------+			  +------------------------+
+  	|WindowEvent (C)|   	                  | WindowStateListener (I)|
+	+-----------+---+			  +------------+-----------+
+     		    |				       v
+                    |                          +--------------------------------------+
++-----------------+ |  +-----------------+     | WindowStateChanged(WindowEvent e) (M)|
+|getNewState() (M)|&lt;+-&gt;|getOldState() (M)|     +--------------------------------------+
++-----------------+	  +-----------------+
+</pre>
+
+<p>
+El método <code>getNewState()</code> nos devuelve el esta nuevo de la ventana. Y
+el método <code>getOldstate()</code> nos devuelve el estado anterior de la
+ventana.
+</p>
+
+<p>
+Se elabora un primer ejemplo que tendrá un marco que cuando cambie su
+estado, que desencadene una acción (mensaje en consola).
+</p>
+
+<p>
+Después de este primer ejemplo, se añade otras caracteristicas para
+saber en concreto cual es el estado que ha adquirido la ventana.
+</p>
+</div>
+</div>
+</div>
+
+<div id="outline-container-sec-4-3" class="outline-3">
+<h3 id="sec-4-3"><span class="section-number-3">4.3</span> Eventos de teclado</h3>
+<div class="outline-text-3" id="text-4-3">
+</div><div id="outline-container-sec-4-3-1" class="outline-4">
+<h4 id="sec-4-3-1"><span class="section-number-4">4.3.1</span> [<i>video71</i>] Eventos VII. Eventos de teclado I</h4>
+<div class="outline-text-4" id="text-4-3-1">
+<p>
+Eventos de teclado significa como conseguir que nuestros programas
+desencadenen acciones, hagan algo, en función de las teclas que pueda
+pulsar el usuario. Es decir, seremos capaces de hacer de que nuestro
+programa haga una acción en concreto si el usuario pulsa una tecla en
+concreto  y que nuestro programa haga otra cosa diferente si el
+usuario ha pulsado otra tecla diferente. Esto es lo que conseguimos
+con los eventos del teclado.
+</p>
+
+<pre class="example">
+   +------------------+
+   |  KeyListener (I) |
+   +--------+---------+
+	    |
++-----------v----------------+
+| KeyPressed(KeyEvent e) (M) |		     +----------------+
++------------+---------------+		     |         	      |
+	     |				     |  KeyAdapter (C)|
++------------+----------------+		     |                |
+| KeyReleased(KeyEvent e) (M) |		     +----------------+
++------------+----------------+
+       	     |
++------------+--------------+
+| KeyTyped(KeyEvent e) (M)  |
++---------------------------+
+</pre>
+
+<p>
+El método <code>KeyPressed(KeyEvent e)</code> es llamado cuando una tecla es
+presionada.
+</p>
+
+<p>
+El método <code>KeyReleased(KeyEvent e)</code> es llamado justo el momento cuando
+quitamos el dedo del teclado.
+</p>
+
+<p>
+El método <code>KeyTyped(KeyEvent e)</code> es la suma de las dos
+anteriores. Tiene lugar cuando, han tenido ya, los dos sucesos, es
+decir, ya ha sido presionada y posteriormente la tecla ha vuelto ha su
+estado original (vuelto a subir).
+</p>
+
+<p>
+Luego como hemos visto anteriormente todas aquellas interfaces que
+tienen más de un método en su interior, <code>KeyListener</code> es una de ellas,
+tiene su correspondiente <i>clase adaptadora</i> .
+</p>
+</div>
+</div>
+</div>
+
+<div id="outline-container-sec-4-4" class="outline-3">
+<h3 id="sec-4-4"><span class="section-number-3">4.4</span> Eventos de ratón</h3>
+<div class="outline-text-3" id="text-4-4">
+</div><div id="outline-container-sec-4-4-1" class="outline-4">
+<h4 id="sec-4-4-1"><span class="section-number-4">4.4.1</span> [<a href="https://www.youtube.com/watch?v=SMLwQxlPa9w&list=PLU8oAlHdN5BktAXdEVCLUYzvDyqRQJ2lk&index=72">video72</a>] Eventos VIII. Eventos de ratón I</h4>
+<div class="outline-text-4" id="text-4-4-1">
+<p>
+Son muy importantes a la hora de manejar interfaces gráficas ya que
+cuando construimos una interfaz, que por ejemplo botones, menus,
+objetos que se tienene que arrastrar,  pues tenemos que manejar
+eventos de ratón.
+</p>
+
+<p>
+Los eventos de ratón nos van ha permitir detectar  cuando el usuario,
+por ejemplo, ha pulsado el botón izquierdo, ha pulsado el botón
+derecho, ha utilizado la rueda del ratón, detectar si solo ha hecho un
+click o doble click encima de un componente. Si ha pasado el ratón por
+encima de un elemento o no, etc. 
+</p>
+
+<pre class="example">
+		       +--------------------+	    +------------------+
+		       | MouseListener (I)  |-------| MouseAdapter (C) |
+		       +--------------+-----+	    +------------------+
+				      |
++-------------------------------+     |       +------------------------------+
+| mouseClicked(MouseEvent e) (M)|-----+-------| mouseExited(MouseEvent e) (M)|
++-------------------------------+     |       +------------------------------+
+				      |
+				      |
++-------------------------------+     |       +-------------------------------+
+| mouseEntered(MouseEvent e) (M)|-----+-------| mousePressed(MouseEvent e) (M)|
++-------------------------------+     |       +-------------------------------+
+				      |
+				      |
+                                      |       +--------------------------------+
+ 				      +-------| mouseReleased(MouseEvent e) (M)|
+                                              +--------------------------------+
+</pre>
+
+<p>
+<code>mousePressed</code> desencadena la acción justo cuando pulsamos el botón
+del ratón.
+</p>
+
+<p>
+<code>mouseReleased</code> desencadena la acción justo después cuando el usuario
+quita el dedo del ratón.
+</p>
+
+<p>
+<code>mouseClicked</code> es invocado y desencadena la acción cuando ya han
+tenido lugar los dos anteriores <code>mousePressed</code> y <code>mouseReleased</code>.
+</p>
+
+<p>
+<code>mouseEntered</code> desencadena la acción cuando el ratón entra o pasa
+encima de cierto componente que este a la escucha, por ejemplo un
+botón o una imágen.
+</p>
+
+<p>
+<code>mouseExited</code> al contrario de <code>mouseEntered</code>, se desencadena la acción
+cuando estamos en un componente y arrastrando el ratón salimos de ese
+elemento.
+</p>
+</div>
+</div>
+
+<div id="outline-container-sec-4-4-2" class="outline-4">
+<h4 id="sec-4-4-2"><span class="section-number-4">4.4.2</span> [<a href="https://www.youtube.com/watch?v=9Zflg2FnVjo&index=73&list=PLU8oAlHdN5BktAXdEVCLUYzvDyqRQJ2lk">video73</a>] Eventos IX. Eventos de ratón II</h4>
+<div class="outline-text-4" id="text-4-4-2">
+<p>
+Veremos que métodos y que campos de clase utilizar, pertenecientes a
+la clase <code>MouseEvent</code>, pues para detectar cosas como por ejemplo:
+dónde ha hecho click el usuario dentro de un componente, para saber
+donde esta situado el ratón en un momento en concreto, para saber si
+ha pulsado el botón izquierdo o derecho, cuantos clicks ha hecho. Todo
+esto lo controlamos con métodos pertenecientes a la clase
+<code>MouseEvent</code>.
+</p>
+
+<pre class="example">
+		      +--------------------+
+		      |   MouseEvent (C)   |
+		      +-------+------------+
+		     	      |
++-------------------+	      |	     +----------------------+
+| BUTTON1_DOWN_MASK |---------+------| getX() (M)           |
++-------------------+	      |      +----------------------+
+		     	      |      +----------------------+
+		     	      |------| getY() (M)           |
++-------------------+	      |      +----------------------+
+| BUTTON2_DOWN_MASK |---------+      +----------------------+
++-------------------+ 	      |------| getModifiersEx() (M) |
+		     	      |      +----------------------+
+		     	      |      +----------------------+
++-------------------+	      |------+ getClickCount() (M)  |
+| BUTTON3_DOWN_MASK |---------+      +----------------------+
++-------------------+
+</pre>
+
+<p>
+Hay otra interface muy interesante para controlar los eventos cuando
+el ratón está en movimiento. Esta interface es
+<code>MouseMotionListener</code>. En este paquete este se implementa con la clase
+<code>EventoDeRatonMovimiento</code>.
+</p>
+</div>
+</div>
+</div>
+
+
+<div id="outline-container-sec-4-5" class="outline-3">
+<h3 id="sec-4-5"><span class="section-number-3">4.5</span> Eventos de foco</h3>
+<div class="outline-text-3" id="text-4-5">
+</div><div id="outline-container-sec-4-5-1" class="outline-4">
+<h4 id="sec-4-5-1"><span class="section-number-4">4.5.1</span> [<a href="https://www.youtube.com/watch?v=LMhk2Z7PcoE&index=74&list=PLU8oAlHdN5BktAXdEVCLUYzvDyqRQJ2lk">video74</a>] Eventos X. Eventos de foco I</h4>
+<div class="outline-text-4" id="text-4-5-1">
+<p>
+Por ejemplo cuando hay dos ventanas abiertas de una misma aplicación,
+la ventana de foco o enfocada es la que está seleccionada.
+</p>
+
+<p>
+Esto es lo que se ve en este paquete, como manejar los eventos de
+foco, es decir, como hacer que se desencadene una acción cuando un
+componente pues adquiere o pierde el foco, y tambien cuando una ventana
+adquiere o pierde el foco.
+</p>
+
+<p>
+Eventos de foco orientado a componentes:
+</p>
+<pre class="example">
+		   +--------------------+	 +-------------------+
+ 		   |  FocusListener (I) |--------|  focusAdapter (C) |
+		   +----------------+---+	 +-------------------+
+				    |
+				    |
++------------------------------+    |	   +---------------------------+
+|focusGained(FocusEvent e) (M) |----+------|focusLost(FocusEvent e) (M)|
++------------------------------+	   +---------------------------+
+</pre>
+
+
+<p>
+Eventos de foco orientado a Ventana:
+</p>
+<pre class="example">
+		       +-------------------------+   +-------------------+
+		       |  WindowFocusListener (I)|---|  WindowAdapter (C)|
+		       +-------------------------+   +-------------------+
+				       |
+				       |
++-----------------------------------+  |   +---------------------------------+
+|windowGainedFocus(FocusEvent e) (M)|--+---|windowLostFocus(FocusEvent e) (M)|
++-----------------------------------+      +---------------------------------+
+</pre>
+
+<p>
+En este paquete se da un ejemplo de perdida y ganancia de foco con
+componentes, haciendo que cuando un JTextField cambia hacia otro se
+haga algo en la consola.
+</p>
+</div>
+</div>
+
+<div id="outline-container-sec-4-5-2" class="outline-4">
+<h4 id="sec-4-5-2"><span class="section-number-4">4.5.2</span> [<a href="https://www.youtube.com/watch?v=NvNZNEVWYO8&index=75&list=PLU8oAlHdN5BktAXdEVCLUYzvDyqRQJ2lk">video75</a>] Eventos XI. Eventos de foco II</h4>
+<div class="outline-text-4" id="text-4-5-2">
+<p>
+En este paquete se muestra la perdida y ganancia de foco pero con
+ventanas. Se crean dos JFrames y que muestre un mensaje en la barra de
+titulo el JFrame que tenga el foco.
+</p>
+</div>
+</div>
+</div>
+
+
+<div id="outline-container-sec-4-6" class="outline-3">
+<h3 id="sec-4-6"><span class="section-number-3">4.6</span> Multiples fuentes de eventos</h3>
+<div class="outline-text-3" id="text-4-6">
+</div><div id="outline-container-sec-4-6-1" class="outline-4">
+<h4 id="sec-4-6-1"><span class="section-number-4">4.6.1</span> [<a href="https://www.youtube.com/watch?v=YSCNtyNqizk&index=76&list=PLU8oAlHdN5BktAXdEVCLUYzvDyqRQJ2lk">video76</a>] Eventos XII. Múltiples fuentes I</h4>
+<div class="outline-text-4" id="text-4-6-1">
+<p>
+Por ejemplo cuando se quiere poner en negrita una palabra en
+Word. Para esto puede haber dos fuentes. Una es el botón de
+negrita. La otra fuente podría ser la tecla Ctrl+N. Entonces tenemos
+dos fuentes para un mismo oyente que ejecute la acción de poner la
+palabra en negrita.
+</p>
+
+<p>
+Para esto se utiliza la interfaz <code>Action</code> de la API de Java.
+</p>
+
+<pre class="example">
++-----------------------------------+	    +-----------+     +------------------+
+|actionPerformed(ActionEvent evento)|------|Action (I) |     | AbstractAction(C)|
++-----------------------------------+	    +-----------+     +------------------+
+					       |     
++--------------------------+			|	+-----------------------+
+|setEnabled(boolean b) (M) |-------------------+-------|isEnable(boolean b) (M)|
++--------------------------+		        |	+-----------------------+
+					       |
++----------------------------------------+     |      +----------------------------+
+|putValue(String clave, Object valor) (M)|-----+------| getValue(String clave) (M) |
++----------------------------------------+     |      +----------------------------+
+					       |
++---------------------------------+	       	| 	+----------------------------------+
+|addPropertyChangedListener(Proper|            |       |removePropertyChangedListener(Pro |
+|tyChangedListener oyente) (M)    |------------+-------|pertyChangedListener oyente)  (M) |
++---------------------------------+		 	+----------------------------------+
+</pre>
+
+<p>
+La clase <code>AbstractAction</code> implementa seis métodos de la interfaz
+<code>Action</code>, y no implementa el método <code>actionPerformed(ActionEvent
+e)</code>. Con esto, si no queremos programar los seis métodos al
+implementar en alguna nuestra clase, lo que tendríamos que hacer, en
+su lugar, es heredar de <code>AbstractAction</code> y luego sobre escribir el
+método que queramos programar en nuestra clase.
+</p>
+
+<p>
+En este paquete se crea un JPanel que tiene tres botones y pulsando en
+cada uno de ellos el JPanel se pintara de un color dependiendo de que
+botón fue pulsado. Esto es lo mismo de lo que se hizo en los paquetes
+<code>video66</code> y <code>video67</code> solo que, aquí, con la novedad de que también se
+pintará si se realiza una combinación de teclas.
+</p>
+</div>
+</div>
+
+<div id="outline-container-sec-4-6-2" class="outline-4">
+<h4 id="sec-4-6-2"><span class="section-number-4">4.6.2</span> [<a href="https://www.youtube.com/watch?v=8FQnwZrr8Ck&index=77&list=PLU8oAlHdN5BktAXdEVCLUYzvDyqRQJ2lk">video77</a>] Eventos XIII. Múltiples fuentes II</h4>
+<div class="outline-text-4" id="text-4-6-2">
+<p>
+continua con el ejemplo del <code>video76</code>. 
+</p>
+</div>
+</div>
+
+<div id="outline-container-sec-4-6-3" class="outline-4">
+<h4 id="sec-4-6-3"><span class="section-number-4">4.6.3</span> [<a href="https://www.youtube.com/watch?v=sY1CWJlqsSU&index=78&list=PLU8oAlHdN5BktAXdEVCLUYzvDyqRQJ2lk">video78</a>] Eventos XIV. Múltiples fuentes III</h4>
+<div class="outline-text-4" id="text-4-6-3">
+<p>
+continua con el ejemplo del <code>video77</code>. Hasta es este punto se han
+creado tres botones con una imagen, una descripción que aparece cuando
+se pune el cursor sobre el botón y un texto. Cuando se da click a
+culquier botón, se pinta el fondo con el color que indique el botón.
+</p>
+
+<p>
+Faltaría pues (se hace en el siguiente video) que además de que el
+fondo cambie cuando se le da click en el botón correspondiente,
+también ejecute la acción cuando se presione cierta combinación de
+teclas.
+</p>
+</div>
+</div>
+
+<div id="outline-container-sec-4-6-4" class="outline-4">
+<h4 id="sec-4-6-4"><span class="section-number-4">4.6.4</span> [<a href="https://www.youtube.com/watch?v=Nkyt5DT2mA0&list=PLU8oAlHdN5BktAXdEVCLUYzvDyqRQJ2lk&index=79">video79</a>] Eventos XV. Múltiples fuentes IV</h4>
+<div class="outline-text-4" id="text-4-6-4">
+<p>
+Lo que se hace en este paquete es tener un objeto oyente, que seguirá
+siendo el JPanel, pero tener dos objetos fuente, es decir, además de
+el correspondiente botón, pues, también asignar como segundo objeto
+fuente de evento, una combinación de eventos. Por ejemplo con Ctrl+A
+se pinte el fondo de amarillo, con Ctrl+B de azul y Ctrl+R de rojo.
+</p>
+
+<p>
+Con esto tendríamos que la acción de pintar el fondo del JPanel puede
+realizarse de dos formas diferentes: desde sus botones
+correspondientes y desde una combinación de teclas.
+</p>
+
+<p>
+Los pasos ha seguir para realizar la asignación de acciones al teclado
+son:
+</p>
+
+<ol class="org-ol">
+<li>Crear mapa de entrada. Cual va a ser el objeto que tenga el foco,
+sobre que objeto va ha insidir la combinación de teclas. Las clases
+que se utilizan en este paso son: <code>InputMap</code>, <code>getInputMap(int
+   condicion)</code> de la clase <code>JComponenet</code>.
+</li>
+<li>Crear combinación de teclas. Las clases que se utiliza <code>static
+   getKeyStroke(String s)</code> de la clase <code>KeyStroke</code>.
+</li>
+<li>Asignar combinación de teclas a objeto. La clase que se utiliza:
+<code>put(KeyStroke, Object)</code>.
+</li>
+<li>Asignar objeto a acción. Se utiliza <code>put(Object, accion)</code> de la
+clase <code>ActionMap</code>.
+</li>
+</ol>
+</div>
+</div>
+
+<div id="outline-container-sec-4-6-5" class="outline-4">
+<h4 id="sec-4-6-5"><span class="section-number-4">4.6.5</span> [<a href="https://www.youtube.com/watch?v=smJg5QjlBpU&list=PLU8oAlHdN5BktAXdEVCLUYzvDyqRQJ2lk&index=80">video80</a>] Eventos XVI. Múltiples oyentes</h4>
+<div class="outline-text-4" id="text-4-6-5">
+<pre class="example">
+							   +----------+
++--------+						     | Oyente 1 |
+|Fuente 1|--					  evento   /-+----------+
++--------+  \-evento				         /-  
+	      \-				      /--    
+		\-				    /-	     
++--------+  evento\+--------+		+--------+-- evento  +----------+
+|Fuente 2|---------| Oyente |		|Fuente 1|-----------|Oyente 2  |
++--------+	    /+--------+		+--------+  	     +----------+
+		/-				  -\	     
+	      /-				    -\ evento
+	     /evento				      --\
++--------+ /-						 -\  +----------+
+|Fuente 3|/						   --| Oyente 3 |
++--------+						     +----------+
+</pre>
+
+<p>
+Siguiendo el ejemplo del <code>video79</code> teníamos un oyente que era el
+JPanel que cambiaba de color. Teníamos dos fuentes. Una era el botón
+del color correspondiente y la otra era el teclado.
+</p>
+
+<p>
+Lo que se ve en este paquete es un escenario que es justamente lo
+contrario. Es decir tener una unica fuente, esta fuente descencadena
+un evento, y este evento es escuchado por varios oyentes.
+</p>
+
+<p>
+Va a consistir en un marco (JFrame) que tendra dos botones. Un botón
+nuevo y un botón de cerrar. Cuando pulsemos en el botón de <i>nuevo</i> que
+genere una ventana nueva. Cuando se presione el botón cerrar va ha
+descencadenar un evento, este evento va ha ser escuchado por tres
+oyentes diferentes (las ventanas abiertas con el botón <i>nuevo</i>).
+</p>
+</div>
+</div>
+</div>
+</div>
+
+<div id="outline-container-sec-5" class="outline-2">
+<h2 id="sec-5"><span class="section-number-2">5</span> Layouts</h2>
+<div class="outline-text-2" id="text-5">
+</div><div id="outline-container-sec-5-1" class="outline-3">
+<h3 id="sec-5-1"><span class="section-number-3">5.1</span> [<a href="https://www.youtube.com/watch?v=Fr8lqCKwjmM&index=81&list=PLU8oAlHdN5BktAXdEVCLUYzvDyqRQJ2lk">video81</a>] Layouts I. Componentes Swing</h3>
+<div class="outline-text-3" id="text-5-1">
+<p>
+Se crean tres botones y se utiliza la clase <code>FlowLayout</code> para posicionar
+los componenetes dentro de un JPanel que esta dentro del JFrame
+principal.
+</p>
+</div>
+</div>
+
+<div id="outline-container-sec-5-2" class="outline-3">
+<h3 id="sec-5-2"><span class="section-number-3">5.2</span> [<a href="https://www.youtube.com/watch?v=FAOGZuvvwrE&list=PLU8oAlHdN5BktAXdEVCLUYzvDyqRQJ2lk&index=82">video82</a>] Layouts II</h3>
+<div class="outline-text-3" id="text-5-2">
+<p>
+Se crean cinco JButton's y se disponen en dos paneles llamados
+<code>PanelLayout</code> y <code>PanelLayout2</code> luego estos cinco botones se dispones
+en los dos paneles y se les aplica diferentes disposiciones
+<code>FlowLayout</code> y <code>BorderLayout</code>.
+</p>
+
+<p>
+Por defecto los componentes se encuentran en disposición <code>FlowLayout</code>
+y centrado.
+</p>
+</div>
+</div>
+
+<div id="outline-container-sec-5-3" class="outline-3">
+<h3 id="sec-5-3"><span class="section-number-3">5.3</span> [<a href="https://www.youtube.com/watch?v=Py96zzymLA4&index=83&list=PLU8oAlHdN5BktAXdEVCLUYzvDyqRQJ2lk">video83</a>] Layouts III</h3>
+<div class="outline-text-3" id="text-5-3">
+<p>
+En este paquete se ve otra disposición denominada <code>GridLayout</code>, que lo
+que hace es dejar nuestro contenedor en forma de rejilla. Es decir,
+dejarlo en una especie de filas y columnas de tal forma nos quedan una
+especie de celdas para colocar en ellos los componentes Swing.
+</p>
+
+<p>
+El ejemplo para aplicar el <code>GridLayout</code> es una calculadora, el cual,
+solo se deja hecho la interfaz gráfica, para continuar en el siguiente paquete.
+</p>
+</div>
+</div>
+
+<div id="outline-container-sec-5-4" class="outline-3">
+<h3 id="sec-5-4"><span class="section-number-3">5.4</span> [<a href="https://www.youtube.com/watch?v=sT7UZM8yliE&list=PLU8oAlHdN5BktAXdEVCLUYzvDyqRQJ2lk&index=84">video84</a>] Layouts IV</h3>
+<div class="outline-text-3" id="text-5-4">
+<p>
+Se continua con el ejemplo, iniciado en el paquete anterior, de
+utilizar un <code>GridLayout</code> para realizar la interfaz gráfica de una
+calculadora. En este paquete se le añade la funcionalidad a los
+botones.
+</p>
+
+<p>
+Esta funcionalidad consiste en que cuando se pulsa un número, se
+muestre en la pantalla este número. Luego si se pulsa otro número se
+concatena el texto anterior con el actual.
+</p>
+
+<p>
+Los botones de operaciones (*,/,+,-) no se le agrega aún. Esto se hará
+en el próximo paquete.
+</p>
+</div>
+</div>
+
+<div id="outline-container-sec-5-5" class="outline-3">
+<h3 id="sec-5-5"><span class="section-number-3">5.5</span> [<a href="https://www.youtube.com/watch?v=Q2bzRMcE2Jk&list=PLU8oAlHdN5BktAXdEVCLUYzvDyqRQJ2lk&index=85">video85</a>] Layouts V</h3>
+<div class="outline-text-3" id="text-5-5">
+<p>
+Se continua con la calculadora iniciada en el paquete <code>video83</code>,
+y siguida en <code>video84</code>.
+</p>
+
+<p>
+En este paquete se termina con la calculadora, poniendole
+puncionalidad a los botones de operaciones (*,/,+,-).
+</p>
+</div>
+</div>
+</div>
+
+<div id="outline-container-sec-6" class="outline-2">
+<h2 id="sec-6"><span class="section-number-2">6</span> Componentes Swing</h2>
+<div class="outline-text-2" id="text-6">
+</div><div id="outline-container-sec-6-1" class="outline-3">
+<h3 id="sec-6-1"><span class="section-number-3">6.1</span> Cuadros de texto</h3>
+<div class="outline-text-3" id="text-6-1">
+<p>
+Cuando se dice "cuadros de texto" se puede referir a <code>JTextField</code> o
+bien a <code>JPasswordfield</code>. Por cierto que el segundo hereda del
+primero. Se caracterizan por tener una sola línea de texto.
+</p>
+</div>
+
+<div id="outline-container-sec-6-1-1" class="outline-4">
+<h4 id="sec-6-1-1"><span class="section-number-4">6.1.1</span> [<a href="https://www.youtube.com/watch?v=pl_FZDDDPZY&index=86&list=PLU8oAlHdN5BktAXdEVCLUYzvDyqRQJ2lk">video86</a>] Cuadros de texto I</h4>
+<div class="outline-text-4" id="text-6-1-1">
+<pre class="example">
+		      +----------------------+   
+		      |  JTextComponent (CA) |   
+		      +----------------------+   
+				|	       
+				|	       
++-----------------------+	| 	       	+----------------+
+|void setText(String t) |-------+---------------| void getText() |
++-----------------------+    	| 		+----------------+
+				|
+				|
+				|
+				|
+	 +---------------+	|	       +---------------+
+	 | JTextField (C)|------+--------------| JTextArea (C) |
+	 +---------------+		       +---------------+
+
+(C): clase
+(CA): clase abstracta
+</pre>
+
+<p>
+En este paquete se crea un marco el cual pone un <code>JTextField</code> y un
+<code>JButton</code>. Cuando se le da click en el botón, captura el texto dentro
+del <code>JTextfield</code> y lo imprime en consola. La continuación de este
+ejemplo se realiza en el paquete <code>video87</code> para validar una dirección
+de correo electrónico  en el <code>JTextField</code>.
+</p>
+</div>
+</div>
+
+<div id="outline-container-sec-6-1-2" class="outline-4">
+<h4 id="sec-6-1-2"><span class="section-number-4">6.1.2</span> [<a href="https://www.youtube.com/watch?v=Fgt_ysSAXn8&list=PLU8oAlHdN5BktAXdEVCLUYzvDyqRQJ2lk&index=87">video87</a>] Cuadros de texto II</h4>
+<div class="outline-text-4" id="text-6-1-2">
+<p>
+Se realiza la continuación del ejemplo el paquete <code>video86</code>, y se le
+extiende colocando una validación de una dirección de e-mail en
+función de que si tiene '@' o no la tiene.
+</p>
+</div>
+</div>
+
+<div id="outline-container-sec-6-1-3" class="outline-4">
+<h4 id="sec-6-1-3"><span class="section-number-4">6.1.3</span> [<a href="https://www.youtube.com/watch?v=-Q_gHYLTRPQ&index=88&list=PLU8oAlHdN5BktAXdEVCLUYzvDyqRQJ2lk">video88</a>] Eventos en cuadros de texto I</h4>
+<div class="outline-text-4" id="text-6-1-3">
+<p>
+Cambios en un <code>JTextField</code>. ¿Cómo gestionamos el evento?
+</p>
+
+<pre class="example">
+ +-------------------+						      +-------------------+
+ |JTextComponent (CA)|--------+			            +---------|ReceptoraEvento (C)|
+ +-------------------+	      |				    |	      +-------------------+
+	   |		+-------------+		 +---------------------+
+	   | 		|getDocument()|		 | DocumentListener (I)|
+	   | 		+-------------+		 +---------+-----------+
+	   |						   |	   
+    +--------------+					   |	   +--------------+
+    |JTextField (C)|	      +-------+			   +-------|removeUpdate()|
+    +--------------+	      | ---  \|			   |	   +--------------+
+			      | ---   |			   |	   +---------------+
+			      | ---   |			   +-------|insertUpdate() |
+			      +-------+			   |	   +---------------+
+ +---------------------+    +------------+		   |	   +---------------+
+ |addDocumentListener()|----|Document (I)|		   +-------|changedUpdate()|
+ +---------------------+    +------------+			   +---------------+
+
+CA: clase abstracta
+I: interface
+C: clase
+</pre>
+
+<p>
+<code>Document</code> es una representación del texto que tiene el <code>JTextField</code>.
+</p>
+
+<p>
+El método <code>removeUpdate()</code> se ejecuta cuando dentro del <code>JTextField</code>
+se elimina texto.
+</p>
+
+<p>
+El método <code>insertUpdate()</code> se ejecuta cuando dentro del <code>JTextField</code>
+se inserta texto.
+</p>
+
+<p>
+El método <code>changedUpdate()</code> se ejecuta, cuando el textro dentro del
+<code>JTextField</code>, modifica alguna de sus propiedades (negritas, cursiva,
+tamaños, etc).
+</p>
+
+<p>
+La clase <code>JTextField</code> tiene el método <code>getDocument()</code> que aplicandolo
+sobre un objeto <code>JTextField</code> lo que hace es devolvernos un <code>Document</code>
+y a ese <code>Document</code> le podemos aplicar el método <code>addDocumentListener</code>.
+</p>
+
+<p>
+En este paquete se crea un <code>JFrame</code> con un <code>JPanel</code> conteniendo un
+<code>JTextfield</code>. A este último se le pone ha la escucha para que muestre
+por consola cuando se ha añadido texto y cuando se le ha borrado texto
+al mismo.
+</p>
+</div>
+</div>
+
+<div id="outline-container-sec-6-1-4" class="outline-4">
+<h4 id="sec-6-1-4"><span class="section-number-4">6.1.4</span> [<a href="https://www.youtube.com/watch?v=uQWVgMeOeHw&index=89&list=PLU8oAlHdN5BktAXdEVCLUYzvDyqRQJ2lk">video89</a>] Eventos en cuadros de texto II</h4>
+<div class="outline-text-4" id="text-6-1-4">
+<p>
+Se labora un ejemplo un poco más práctico con eventos para cuadros de
+texto. Una aplicación gráfica que tenga un nombre de usuario, una
+constraseña, esa contraseña deba de contener entre 8 y 12 caracteres y
+en caso de que estemos introduciendo una contraseña con caracteres
+incorrectos, pues, que la aplicación gráfica nos avise. 
+</p>
+
+<p>
+El control para el cuadro de texto para contraseña es un
+<code>JPasswordField</code>.
+</p>
+
+<p>
+Mientras no se cumple el requisito que se muestre el fondo del
+<code>JPasswordField</code> en rojo y cambie a blanco cuando ya cumpla.
+</p>
+</div>
+</div>
+</div>
+
+<div id="outline-container-sec-6-2" class="outline-3">
+<h3 id="sec-6-2"><span class="section-number-3">6.2</span> Áreas de texto</h3>
+<div class="outline-text-3" id="text-6-2">
+<p>
+Cuando se dice "áreas de texto" refiere a <code>JTextArea</code>. Se
+caracterizan por admitir varias líneas de texto.
+</p>
+</div>
+
+<div id="outline-container-sec-6-2-1" class="outline-4">
+<h4 id="sec-6-2-1"><span class="section-number-4">6.2.1</span> [<a href="https://www.youtube.com/watch?v=qVDzPPUfpLI&list=PLU8oAlHdN5BktAXdEVCLUYzvDyqRQJ2lk&index=90">video90</a>] Áreas de texto I</h4>
+<div class="outline-text-4" id="text-6-2-1">
+<pre class="example">
+		       +---------------+		      
+	+--------------+ JTextArea (C) |-----------------------
+	|              +---------------+		      |
+	|			|			      |
+	|			|			      |
+ +-----------+	     +---------------------+	       +---------------+
+ | getText() |	     | setLineWrap(boolean)| 	       | getLineWrap() |
+ +-----------+	     +---------------------+	       +---------------+
+
+(C): clase
+</pre>
+
+<p>
+El método <code>getText()</code> devulve el texto que hay escrito en el área de
+texto.
+</p>
+
+<p>
+El método <code>setLineWrap()</code> establece si el área de texto tiene saltos
+de línea o no los tiene.
+</p>
+
+<p>
+El método <code>getLineWrap()</code> nos dice si el área de texto que estamos
+evaluando tiene o no tiene saltos de línea.
+</p>
+
+<p>
+Se contruye en un <code>JFrame</code> que tiene un <code>JPanel</code> con un
+<code>JTextArea</code>. En el último el usuario escribirá. A continuación un
+botón que pulsando en él nos pondrá en consola el texto que tiene el
+área de texto.
+</p>
+</div>
+</div>
+
+<div id="outline-container-sec-6-2-2" class="outline-4">
+<h4 id="sec-6-2-2"><span class="section-number-4">6.2.2</span> [<a href="https://www.youtube.com/watch?v=eOblXyMw9wE&index=91&list=PLU8oAlHdN5BktAXdEVCLUYzvDyqRQJ2lk">video91</a>] Áreas de texto II</h4>
+<div class="outline-text-4" id="text-6-2-2">
+<p>
+Un ejemplo un poco más complejo. Se crea un <code>JTextArea</code> en la zona
+central. En la parte inferior va un botón que inserta un texto por
+defecto. Un segundo botón que quitará saltos de línea en el área de
+texto.
+</p>
+
+<p>
+Se incluye un <i>concepto nuevo</i> respecto a los layouts que es establecer
+un layout en el propio <code>JFrame</code> y no en un <code>Jpanel</code>, como se ha echo en
+los anteriores paquetes, sin agregar <code>JPanel</code>.
+</p>
+
+<p>
+Otra de las caracteristicas, en la codificación de este paquete, es
+que no se crean clases por aparte para las clases oyentes de los
+eventos de los botones, sino más bien se realiza todo en una clase.
+</p>
+</div>
+</div>
+</div>
+
+<div id="outline-container-sec-6-3" class="outline-3">
+<h3 id="sec-6-3"><span class="section-number-3">6.3</span> CheckBox</h3>
+<div class="outline-text-3" id="text-6-3">
+</div><div id="outline-container-sec-6-3-1" class="outline-4">
+<h4 id="sec-6-3-1"><span class="section-number-4">6.3.1</span> [<a href="https://www.youtube.com/watch?v=V-hmPZ8pDkM&index=92&list=PLU8oAlHdN5BktAXdEVCLUYzvDyqRQJ2lk">video92</a>] CheckBox</h4>
+<div class="outline-text-4" id="text-6-3-1">
+<pre class="example">
+		  +------------------+			
+		  |  	              |			
+	+---------+   JCheckBox (C)  |----------------+
+	|	   |                  |		       |
+	|	   +------------------+		       |
+	|					       |
+ +-------------+			      +---------------------+
+ | isSelected()|			      | setSelected(boolean)|
+ +-------------+			      +---------------------+
+
+(C): clase
+</pre>
+
+<p>
+Estos dos métodos los hereda de <code>javax.swing.AbstractButton</code>. 
+</p>
+
+<p>
+<code>isSelected()</code> permite determinar si la casilla de verificación estás
+seleccionada o no lo está.
+</p>
+
+<p>
+<code>setSelected()</code> permite seleccionar, desde código, seleccionar esa
+casilla o no seleccionarlo.
+</p>
+
+<p>
+En este paquete se establece un texto en la parte superior del marco y
+luego en la parte inferior de este marco que aparezcan los dos
+checkbox.
+</p>
+
+<p>
+Estos checkbox permiten modificar algunas características del texto
+que esta arriba, por ejemplo, el checkbox en la parte izquierda
+inferior va ha establecer letra negrita para el texto. El otro
+checkbox hace lo mismo pero con cursiva.
+</p>
+</div>
+</div>
+</div>
+
+<div id="outline-container-sec-6-4" class="outline-3">
+<h3 id="sec-6-4"><span class="section-number-3">6.4</span> Botones de radio</h3>
+<div class="outline-text-3" id="text-6-4">
+</div><div id="outline-container-sec-6-4-1" class="outline-4">
+<h4 id="sec-6-4-1"><span class="section-number-4">6.4.1</span> [<a href="https://www.youtube.com/watch?v=CWl3ihbT4I0&list=PLU8oAlHdN5BktAXdEVCLUYzvDyqRQJ2lk&index=93">video93</a>] Botones de radio I</h4>
+<div class="outline-text-4" id="text-6-4-1">
+<p>
+Los botones de radio son como los checkbox pero redondos. La
+diferencia esta en que los checkbox puedes seleccionar varios a la
+vez, mientras que los botones de radio solo una unica entre varias.
+</p>
+
+
+<p>
+Clases implicadas para construir este tipo de objetos
+</p>
+<pre class="example">
++------------------+		  +------------------+
+| JRadioButton (C) |		  |  ButtonGroup (C) |
++------------------+		  +------------------+
+						      
+       O Azul			    +-----------------+
+				    |	  O Azul      |
+       O Verde			    |         	      |
+				    |     O Verde     |
+       O Rojo			    |		      |
+				    |     O Rojo      |
+				    |		      |
+				    +-----------------+
+</pre>
+
+<p>
+<code>JRadioButton</code> no permite construir uno de estos elementos, luego para
+adquirir el comportamiento de que solo uno es posible seleccionar, es
+menester utilizar la clase <code>Buttongroup</code>.
+</p>
+
+<p>
+En este paquete se crean dos grupos de botones de radio. El primer
+grupo son: azul, verde y rojo. El segundo grupo son: masculino y
+feminino. Solo se crean las interfaces gráficas sin funcionalidad.
+</p>
+</div>
+</div>
+
+<div id="outline-container-sec-6-4-2" class="outline-4">
+<h4 id="sec-6-4-2"><span class="section-number-4">6.4.2</span> [<a href="https://www.youtube.com/watch?v=DxrcffniQKQ&index=94&list=PLU8oAlHdN5BktAXdEVCLUYzvDyqRQJ2lk">video94</a>] Botones de radio II</h4>
+<div class="outline-text-4" id="text-6-4-2">
+<p>
+En el centro del marco se coloca un texto.
+</p>
+
+<p>
+En la parte inferior cuatro botones de radio etiquetados con pequeño,
+mediano, grande y muy grande. Cuando se pulsa en algun boton de radio
+el texto central cambia de tamaño conforme su etiqueta lo indique.
+</p>
+</div>
+</div>
+</div>
+
+<div id="outline-container-sec-6-5" class="outline-3">
+<h3 id="sec-6-5"><span class="section-number-3">6.5</span> ComboBox</h3>
+<div class="outline-text-3" id="text-6-5">
+</div><div id="outline-container-sec-6-5-1" class="outline-4">
+<h4 id="sec-6-5-1"><span class="section-number-4">6.5.1</span> [<a href="https://www.youtube.com/watch?v=MYdAW9f7YHk&list=PLU8oAlHdN5BktAXdEVCLUYzvDyqRQJ2lk&index=95">video95</a>] ComboBox</h4>
+<div class="outline-text-4" id="text-6-5-1">
+<pre class="example">
+		    +----------------+		      
+       +------------|  JComboBox (C) |---------------+
+       |	    +----------------+		     |
+       |					     |
+       |					     |
+  +-----------+				   +--------------------+
+  | addItem() |				   |  getSelectedItem() |
+  +-----------+				   +--------------------+
+
+(C): clase
+</pre>
+
+<p>
+<code>addItem()</code> no permite agregar elementos al menú desplegable
+</p>
+
+<p>
+<code>getSelectedItem()</code> no permite obtener el elemento seleccionado.
+</p>
+
+<p>
+En este paquete se crea un <code>JComboBox</code> en la parte superior
+conteniendo un listado de tipos de letra. 
+</p>
+
+<p>
+En el centro ira un texto por defecto.
+</p>
+
+<p>
+Cuando se selecciona un tipo de letra del <code>JComboBox</code> el texto central
+cambia de tipo de fuente de acuerdo al seleccionado.
+</p>
+
+<p>
+Además, al <code>JCombobox</code> se le establece como editable, mediante el
+método <code>setEditable(true)</code>, para hacer que el usuario pueda escribir
+la fuente que quiera y luego presionar enter para que cambie el texto
+central a ese tipo de fuente.
+</p>
+
+<p>
+IMPORTANTE: las fuentes listadas en el <code>JComboBox</code> son del sistema
+GNU/Linux por lo que si se quiere ejecutar en Windows se tendrá que
+cambiar estos tipos de fuente listados en el <code>JCombobox</code> o de lo
+contrario no realizará ninguna acción con se elija algún item.
+</p>
+</div>
+</div>
+</div>
+
+<div id="outline-container-sec-6-6" class="outline-3">
+<h3 id="sec-6-6"><span class="section-number-3">6.6</span> JSlider</h3>
+<div class="outline-text-3" id="text-6-6">
+</div><div id="outline-container-sec-6-6-1" class="outline-4">
+<h4 id="sec-6-6-1"><span class="section-number-4">6.6.1</span> [<a href="https://www.youtube.com/watch?v=XtoSO1yXgSc&list=PLU8oAlHdN5BktAXdEVCLUYzvDyqRQJ2lk&index=96">video96</a>] JSlider I</h4>
+<div class="outline-text-4" id="text-6-6-1">
+<p>
+Los JSlider también conocidos como controles deslizantes. Es el tipo
+control que se puede deslizar de izquierda a derecha.
+</p>
+
+<pre class="example">
+ 	               	 			+-----------------+
+                                       		|                 |
+             +----------------------------------|    JSlider (C)  |------------------------------------+
+             |                                  |                 |                                    |
+             |                   	        +-----------------+	     			       |
+             | 		 	            		 | 		        		       |
+ 	     | 		 		                 |        	  			       |
+ 	     | 		 		  +--------------+----------------+			       |
+ 	     | 		 		  |	                	  |			       |
+ +----------------------+     +-------------------------+   +------------------------+ 	   +-----------+------------+
+ |setPaintTicks(boolean)|     |setMajorTickSpacing(int) |   |setMinorTickSpacing(int)| 	   | setPaintLabels(boolean)|
+ +----------------------+     +-------------------------+   +------------------------+ 	   +------------------------+
+
+(C): clase
+</pre>
+
+<p>
+El método <code>setPaintTicks</code> se utiliza para imprimier las lineas de
+división.
+</p>
+
+<p>
+El método <code>setPaintLabels</code> se utiliza para que se impriman los valores
+numéricos.
+</p>
+
+<p>
+Los métodos <code>setMajorTickSpacing</code> y <code>setMinorTickSpacing</code> se utilizan
+para determinar de cuanto en cuanto van las marcas.
+</p>
+
+<p>
+En este paquete se crea un <code>JSlider</code> sin funcionalidad solo interfaz
+gráfica.
+</p>
+</div>
+</div>
+
+<div id="outline-container-sec-6-6-2" class="outline-4">
+<h4 id="sec-6-6-2"><span class="section-number-4">6.6.2</span> [<a href="https://www.youtube.com/watch?v=3IV2SKV6H80&index=97&list=PLU8oAlHdN5BktAXdEVCLUYzvDyqRQJ2lk">video97</a>] JSlider II</h4>
+<div class="outline-text-4" id="text-6-6-2">
+<p>
+Lo que vamos ha ver en este paquete es como agregar intactividad ha
+este componenete, es decir, arrastrando el <code>JSlider</code> responda a
+eventos, o desencadene acciones mejor dicho. Se comienza con lo hecho
+en el paquete anterior <code>video96</code>.
+</p>
+
+<p>
+Especificamente se crean un <code>JSlider</code> en la parte superior y un texto
+central. A medida que cambie el <code>JSlider</code>, también lo hará en tamaño
+del texto central.
+</p>
+
+<p>
+Para controlar eventos el <code>JSlider</code> tiene el método
+<code>addChangedListener(ChangeListener)</code>.
+</p>
+</div>
+</div>
+</div>
+
+<div id="outline-container-sec-6-7" class="outline-3">
+<h3 id="sec-6-7"><span class="section-number-3">6.7</span> JSpinner</h3>
+<div class="outline-text-3" id="text-6-7">
+</div><div id="outline-container-sec-6-7-1" class="outline-4">
+<h4 id="sec-6-7-1"><span class="section-number-4">6.7.1</span> [<a href="https://www.youtube.com/watch?v=06acFKm-kcQ&list=PLU8oAlHdN5BktAXdEVCLUYzvDyqRQJ2lk&index=98">video98</a>] JSpinner I</h4>
+<div class="outline-text-4" id="text-6-7-1">
+<p>
+Es un cuadro de texto con dos botones a la derecha que normalmente
+contiene datos de tipo número, para aumentar o disminuir los números
+con estos botones.
+</p>
+
+<p>
+Para crear un control con estas características se usa
+</p>
+
+<pre class="example">
+		+------------------+					   
+		|                  |					   
+        +-------|     JSpinner (C) |-------------------+		   
+	|	|                  |		       |		   
+	|	+------------------+		       |		   
+	|			 		       |		   
+	|			 		       |		   
+	|			 		       |		   
+	|			 		       |		   
+  +--------------+		       +----------------------------------+
+  |Jspinner() (c)|		       | Jspinner(SpinnerModel modelo) (c)|
+  +--------------+		       +----------------------------------+
+
+(C) : clase 
+(c) : constructor
+</pre>
+
+<p>
+Cuando se crea con el constructor por defecto <code>JSpinner()</code>, los
+valores son numéricos del 0 al infinito.
+</p>
+
+<p>
+Si se utiliza el segundo constructor <code>JSpinner(SpinnerModel modelo)</code>
+se puede modelar de tal forma que en vez de valores numéricos puedan
+ser de otros tipos como:
+</p>
+
+<ul class="org-ul">
+<li>fechas (se usa la clase <code>SpinnerDateModel</code>)
+</li>
+<li>valores de texto (se usa la clase <code>SpinnerListModel</code>)
+</li>
+</ul>
+
+<p>
+En este paquete se crean cuatro <code>JSpinner</code> utilizando las diferentes
+clases:
+</p>
+
+<dl class="org-dl">
+<dt> JSpinner de lista </dt><dd>cuatro primeros meses del mes utilizando
+<code>SpinnerListModel</code>.
+</dd>
+<dt> JSpinner de fecha </dt><dd>manipula fechas
+</dd>
+<dt> JSpinner de lista de fuentes del sistema </dt><dd>utiliza la misma clase
+<code>SpinnerListModel</code> solo que la lista de cadenas es las fuentes
+del sistema.
+</dd>
+<dt> JSpinner de números </dt><dd>maneja números como lo hace por defecto solo
+que se utiliza la clase <code>SpinnerNumberModel</code> para tener un mejor
+control. Aqui se le indica que comienze en cinco y vaya de dos en
+dos. Como tope inferior se le indica a 0 y como tope superior se
+le indica a 10
+</dd>
+</dl>
+
+<p>
+Se colocaro estos controles solo para probar la interfaz que
+proporciona <code>JSpinner</code>. No se le añade Eventos. Los eventos con
+JSpinner se tratan en el siguiente paquete (<code>video99</code>).
+</p>
+</div>
+</div>
+
+
+<div id="outline-container-sec-6-7-2" class="outline-4">
+<h4 id="sec-6-7-2"><span class="section-number-4">6.7.2</span> [<a href="https://www.youtube.com/watch?v=nOisCjNznaE&index=99&list=PLU8oAlHdN5BktAXdEVCLUYzvDyqRQJ2lk">video99</a>] JSpinner II</h4>
+<div class="outline-text-4" id="text-6-7-2">
+<p>
+Se cambia el modelo del <code>JSpinner</code> para que, cuando se pulse el botón
+de arriba, se decremente en vez de incrementar y cuando se pulse el
+botón de abajo se incremente.
+</p>
+
+<p>
+Para hacer esto tenemos que crear nuestro propio modelo, porque en
+ninguno de los modelos, que podemos utilizar por defecto en java
+(<code>SpinnerListModel</code>, <code>SpinnerDateModel</code>, <code>SpinnerNumberModel</code>), hace
+que este comportamiento cambie.
+</p>
+
+<p>
+En este paquete tambien se trata en concepto nuevo, muy importante y
+quizá complejo: <b>las clases internas anónimas</b>.
+</p>
+</div>
+</div>
+</div>
+
+<div id="outline-container-sec-6-8" class="outline-3">
+<h3 id="sec-6-8"><span class="section-number-3">6.8</span> [<a href="https://www.youtube.com/watch?v=L_QzjDWoKDo&index=100&list=PLU8oAlHdN5BktAXdEVCLUYzvDyqRQJ2lk">video100</a>] Creación de menús I</h3>
+<div class="outline-text-3" id="text-6-8">
+<p>
+Para construir menús Swing, dentro de una aplicación Java, tenemos que
+manejar fundamentalmente las clases:
+</p>
+<ul class="org-ul">
+<li><code>JMenuBar</code>
+</li>
+<li><code>JMenu</code>
+</li>
+<li><code>JMenuItem</code>
+</li>
+</ul>
+
+<p>
+El <code>JMenuBar</code> sirve como elemento de soporte en donde se colocarán los
+objetos de <code>JMenu</code>. Y dentro de <code>JMenu</code> irán objetos de <code>JMenuItem</code>
+para formar una especie de pestañas.
+</p>
+</div>
+</div>
+</div>
+</div>
+<div id="postamble" class="status">
+<p class="author">Author: wegt</p>
+<p class="date">Created: 2018-03-05 lun 21:00</p>
+<p class="creator"><a href="http://www.gnu.org/software/emacs/">Emacs</a> 24.5.1 (<a href="http://orgmode.org">Org</a> mode 8.2.10)</p>
+<p class="validation"><a href="http://validator.w3.org/check?uri=referer">Validate</a></p>
+</div>
+</body>
+</html>

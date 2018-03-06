@@ -1,0 +1,877 @@
+* Sobre este archivo y repositorio
+Este archivo documenta algunos videos del [[https://www.youtube.com/watch?v%3DcoK4jM5wvko&list%3DPLU8oAlHdN5BktAXdEVCLUYzvDyqRQJ2lk][curso de Java desde 0]] dado
+en el canal [[https://www.youtube.com/user/pildorasinformaticas/featured][pildorasinformaticas]] de Juan Gómez.
+
+El fin de esto es dar una especie de índice para que sea cómodo
+conocer que es lo que se trata en cada video.
+
+Se incluye el título del video, un enlace al mismo, una breve
+descripción del tema que se trate y el producto que se obtiene al
+llegar al final del video (normalmente la interfaz gráfica). Todo esto
+sacado de la explicación, conocimiento, he incluso palabras de Juan
+Gómez.
+
+El código de cada video, está disponible en paquetes en este
+repositorio. El nombre de cada paquete se toma del número del video
+correspondiente.
+
+* Clases Internas
+- video51 :: interfaces III
+- video52 :: interfaces IV
+- video53 :: clases internas I
+- video54 :: clases internas II
+
+* Aplicaciones gráficas
+- video55 :: Swing I
+- video56 :: Swing II. Colocando el Frame I
+- video57 :: Swing III. Colocando el Frame II
+- video58 :: Swing IV. Escribiendo en el Frame
+- video59 :: Swing V. Dibujando en el Frame
+
+* Eventos
+
+** Overview
+*** [[[https://www.youtube.com/watch?v%3Db8rkMBnXuwk&index%3D65&list%3DPLU8oAlHdN5BktAXdEVCLUYzvDyqRQJ2lk][video65]]] Eventos I. Teoría sobre eventos
+Entre los tipos de eventos podemos mencionar: (min 6:01)
+- Evento de raton, al hacer click
+- Eventos de teclado, al pulsar alguna tecla
+- Eventos de ventana, al redimensionar, abrir, cerrar una ventana
+
+Eventos: fuentes y oyentes (min 8:04)
+
+#+BEGIN_EXAMPLE
+                          +-----------------------------+         +-------------+
+  		        / | ¿Qué desencadena la acción? |-------->|Objeto evento|
+                       /  +-----------------------------+         +-------------+
+ 	              /	       ej:click
+ 	             /
+ 	            /
+    +-------------+/      +-------------------------------+       +-------------+
+    |tres factores|------ | ¿Quién desencadena la acción? |------>|Objeto Fuente|
+    +-------------+\	  +-------------------------------+       +-------------+
+ 		    \	     ej: click boton, click menu, etc.
+ 		     \
+ 		      \
+ 		       \   +-------------------------+            +---------------+
+ 		        \  |¿Quien recibe la accion? |----------->|Objeto Listener|
+ 		           +-------------------------+	          +---------------+
+ 		                     ej: JPanel
+#+END_EXAMPLE
+
+Para manejar /Objetos Evento/ lo modela la clase =EventObject=. Las
+mas utilizadas son sus clases hijas: =ActionEvent= y =WindowEvent=.
+
+NOTA: este paquete (porque asi fue el video) solo sirve de introducción
+a los eventos, puesto que no se realiza nada gráfico en concreto, solo
+se dejan las clases para reanudar la construcción en el siguiente video.
+
+
+*** [[[https://www.youtube.com/watch?v%3DzwSub29uORc&list%3DPLU8oAlHdN5BktAXdEVCLUYzvDyqRQJ2lk&index%3D66][video66]]] Eventos II.
+Se crea un JFrame con tres botones que al hacer click se pinta de
+azul, amarillo o rojo el JPanel que esta contenido en el JFrame.
+
+*** [[[https://www.youtube.com/watch?v%3DR8fnLtVuLxA&list%3DPLU8oAlHdN5BktAXdEVCLUYzvDyqRQJ2lk&index%3D67][video67]]] Eventos III
+Se reliza lo mismo que el /video66/ pero haciendo uso del concepto de
+clases internas.
+
+** Eventos de ventana
+
+*** [[[https://www.youtube.com/watch?v%3DR8fnLtVuLxA&list%3DPLU8oAlHdN5BktAXdEVCLUYzvDyqRQJ2lk&index%3D67][video68]]] Eventos IV. Eventos de ventana I.
+Es un poco mas laborioso ya que para eventos de ventana hay que
+implementar la interfaz =WindowListener=. Esta interfaz requiere que se
+implemente siete métodos. Puede implementarse solo uno, o dos métodos,
+pero eso se verá en el siguiente video.
+
+En este video se crean dos ventanas tituladas "Ventana 1" y "Ventana
+2". Se les pone ha escuchar los Eventos de ventana.
+
+*** [[[https://www.youtube.com/watch?v%3DQZrNfAJG3fA&list%3DPLU8oAlHdN5BktAXdEVCLUYzvDyqRQJ2lk&index%3D69][video69]]] Eventos V. Eventos de ventana II
+Es bastante labo.ioso ..abajar e entos de ventana por la interfaz
+=WindowListener= ..plementa un m      de métodos y eso nos obliga a
+proo.amar todos ellos. Existe una  olución en Java más elegante, a la
+horo de pr.gramar eventos de ventana, que consiste en eluso de /clases
+adaptadoras/ (Adapter classes).
+
+Las /clases adaptadoras/ es una solución para que el código de
+programación sea mas corto, limpio y claro.
+
+#+BEGIN_EXAMPLE
+
+   +--------------+	  +-------------------+		 +------------------+
+   |KeyAdapter (C)|  	  | WindowAdapter (C) | 	 | MouseAdapter (C) |
+   +--------------+	  +-------------+-----+		 +------------------+
+					|
+	 +------------------------+	|    +-------------------------+
+	 | WindowFocusListener (I)|<----+--->| WindowStateListener (I) |
+	 +------------------------+	|    +-------------------------+
+				        |
+	 +------------------------+     |    +--------------------+
+	 | WindowListener (I)     |<----+--->|EventListener (I)   |
+	 +------------------------+          +--------------------+
+#+END_EXAMPLE
+
+=WindowAdapter= es una clase adaptadora que deberíamos utilizar cuando
+creemos programas que responden a eventos de ventana. Esta clase
+implementa cuatro interfaces (las etiquetadas con (I) en el diagrama
+de arriba).
+
+En este paquete se modifica la del /video68/  utilizando la
+clase =WindowAdapter=.
+
+Hay programadores que consideran mejor extender la interfaz
+=WindowListener= he implementar todos sus métodos y no heredar de la
+clase =WindowAdapter=.
+
+*** [[[https://www.youtube.com/watch?v%3DH_1kldp-d7I&index%3D70&list%3DPLU8oAlHdN5BktAXdEVCLUYzvDyqRQJ2lk][video70]]] Eventos VI Eventos de ventana III.
+Como controlar los estados de la ventana. Por ejemplo como
+desencadenar una acción cuando una ventana cambia de estado (cuando es
+minimizada, maximizada, restaurada, etc).
+
+#+BEGIN_EXAMPLE
+	   +---------------+			  +------------------------+
+  	   |WindowEvent (C)|   	                  | WindowStateListener (I)|
+	   +-----------+---+			  +------------+-----------+
+     		       |				       v
+                       |                          +--------------------------------------+
+   +-----------------+ |  +-----------------+     | WindowStateChanged(WindowEvent e) (M)|
+   |getNewState() (M)|<+->|getOldState() (M)|     +--------------------------------------+
+   +-----------------+	  +-----------------+
+#+END_EXAMPLE
+
+El método =getNewState()= nos devuelve el esta nuevo de la ventana. Y
+el método =getOldstate()= nos devuelve el estado anterior de la
+ventana.
+
+Se elabora un primer ejemplo que tendrá un marco que cuando cambie su
+estado, que desencadene una acción (mensaje en consola).
+
+Después de este primer ejemplo, se añade otras caracteristicas para
+saber en concreto cual es el estado que ha adquirido la ventana.
+
+** Eventos de teclado
+
+*** [[[Eventos%20VII.%20Eventos%20de%20teclado%20I][video71]]] Eventos VII. Eventos de teclado I
+Eventos de teclado significa como conseguir que nuestros programas
+desencadenen acciones, hagan algo, en función de las teclas que pueda
+pulsar el usuario. Es decir, seremos capaces de hacer de que nuestro
+programa haga una acción en concreto si el usuario pulsa una tecla en
+concreto  y que nuestro programa haga otra cosa diferente si el
+usuario ha pulsado otra tecla diferente. Esto es lo que conseguimos
+con los eventos del teclado.
+
+#+BEGIN_EXAMPLE
+	+------------------+
+	|  KeyListener (I) |
+	+--------+---------+
+		 |
+     +-----------v----------------+
+     | KeyPressed(KeyEvent e) (M) |		     +----------------+
+     +------------+---------------+		     |         	      |
+		  |				     |  KeyAdapter (C)|
+     +------------+----------------+		     |                |
+     | KeyReleased(KeyEvent e) (M) |		     +----------------+
+     +------------+----------------+
+       		  |
+     +------------+--------------+
+     | KeyTyped(KeyEvent e) (M)  |
+     +---------------------------+
+#+END_EXAMPLE
+
+El método =KeyPressed(KeyEvent e)= es llamado cuando una tecla es
+presionada.
+
+El método =KeyReleased(KeyEvent e)= es llamado justo el momento cuando
+quitamos el dedo del teclado.
+
+El método =KeyTyped(KeyEvent e)= es la suma de las dos
+anteriores. Tiene lugar cuando, han tenido ya, los dos sucesos, es
+decir, ya ha sido presionada y posteriormente la tecla ha vuelto ha su
+estado original (vuelto a subir).
+
+Luego como hemos visto anteriormente todas aquellas interfaces que
+tienen más de un método en su interior, =KeyListener= es una de ellas,
+tiene su correspondiente /clase adaptadora/ .
+
+** Eventos de ratón
+
+*** [[[https://www.youtube.com/watch?v%3DSMLwQxlPa9w&list%3DPLU8oAlHdN5BktAXdEVCLUYzvDyqRQJ2lk&index%3D72][video72]]] Eventos VIII. Eventos de ratón I
+Son muy importantes a la hora de manejar interfaces gráficas ya que
+cuando construimos una interfaz, que por ejemplo botones, menus,
+objetos que se tienene que arrastrar,  pues tenemos que manejar
+eventos de ratón.
+
+Los eventos de ratón nos van ha permitir detectar  cuando el usuario,
+por ejemplo, ha pulsado el botón izquierdo, ha pulsado el botón
+derecho, ha utilizado la rueda del ratón, detectar si solo ha hecho un
+click o doble click encima de un componente. Si ha pasado el ratón por
+encima de un elemento o no, etc. 
+
+#+BEGIN_EXAMPLE
+		       +--------------------+	    +------------------+
+		       | MouseListener (I)  |-------| MouseAdapter (C) |
+		       +--------------+-----+	    +------------------+
+				      |
++-------------------------------+     |       +------------------------------+
+| mouseClicked(MouseEvent e) (M)|-----+-------| mouseExited(MouseEvent e) (M)|
++-------------------------------+     |       +------------------------------+
+				      |
+				      |
++-------------------------------+     |       +-------------------------------+
+| mouseEntered(MouseEvent e) (M)|-----+-------| mousePressed(MouseEvent e) (M)|
++-------------------------------+     |       +-------------------------------+
+				      |
+				      |
+                                      |       +--------------------------------+
+ 				      +-------| mouseReleased(MouseEvent e) (M)|
+                                              +--------------------------------+
+#+END_EXAMPLE
+
+=mousePressed= desencadena la acción justo cuando pulsamos el botón
+del ratón.
+
+=mouseReleased= desencadena la acción justo después cuando el usuario
+quita el dedo del ratón.
+
+=mouseClicked= es invocado y desencadena la acción cuando ya han
+tenido lugar los dos anteriores =mousePressed= y =mouseReleased=.
+
+=mouseEntered= desencadena la acción cuando el ratón entra o pasa
+encima de cierto componente que este a la escucha, por ejemplo un
+botón o una imágen.
+
+=mouseExited= al contrario de =mouseEntered=, se desencadena la acción
+cuando estamos en un componente y arrastrando el ratón salimos de ese
+elemento.
+
+*** [[[https://www.youtube.com/watch?v%3D9Zflg2FnVjo&index%3D73&list%3DPLU8oAlHdN5BktAXdEVCLUYzvDyqRQJ2lk][video73]]] Eventos IX. Eventos de ratón II
+Veremos que métodos y que campos de clase utilizar, pertenecientes a
+la clase =MouseEvent=, pues para detectar cosas como por ejemplo:
+dónde ha hecho click el usuario dentro de un componente, para saber
+donde esta situado el ratón en un momento en concreto, para saber si
+ha pulsado el botón izquierdo o derecho, cuantos clicks ha hecho. Todo
+esto lo controlamos con métodos pertenecientes a la clase
+=MouseEvent=.
+
+#+BEGIN_EXAMPLE
+		      +--------------------+
+		      |   MouseEvent (C)   |
+		      +-------+------------+
+		     	      |
++-------------------+	      |	     +----------------------+
+| BUTTON1_DOWN_MASK |---------+------| getX() (M)           |
++-------------------+	      |      +----------------------+
+		     	      |      +----------------------+
+		     	      |------| getY() (M)           |
++-------------------+	      |      +----------------------+
+| BUTTON2_DOWN_MASK |---------+      +----------------------+
++-------------------+ 	      |------| getModifiersEx() (M) |
+		     	      |      +----------------------+
+		     	      |      +----------------------+
++-------------------+	      |------+ getClickCount() (M)  |
+| BUTTON3_DOWN_MASK |---------+      +----------------------+
++-------------------+
+#+END_EXAMPLE
+
+Hay otra interface muy interesante para controlar los eventos cuando
+el ratón está en movimiento. Esta interface es
+=MouseMotionListener=. En este paquete este se implementa con la clase
+=EventoDeRatonMovimiento=.
+
+
+** Eventos de foco
+
+*** [[[https://www.youtube.com/watch?v%3DLMhk2Z7PcoE&index%3D74&list%3DPLU8oAlHdN5BktAXdEVCLUYzvDyqRQJ2lk][video74]]] Eventos X. Eventos de foco I
+Por ejemplo cuando hay dos ventanas abiertas de una misma aplicación,
+la ventana de foco o enfocada es la que está seleccionada.
+
+Esto es lo que se ve en este paquete, como manejar los eventos de
+foco, es decir, como hacer que se desencadene una acción cuando un
+componente pues adquiere o pierde el foco, y tambien cuando una ventana
+adquiere o pierde el foco.
+
+Eventos de foco orientado a componentes:
+#+BEGIN_EXAMPLE
+		   +--------------------+	 +-------------------+
+ 		   |  FocusListener (I) |--------|  focusAdapter (C) |
+		   +----------------+---+	 +-------------------+
+				    |
+				    |
++------------------------------+    |	   +---------------------------+
+|focusGained(FocusEvent e) (M) |----+------|focusLost(FocusEvent e) (M)|
++------------------------------+	   +---------------------------+
+#+END_EXAMPLE
+
+
+Eventos de foco orientado a Ventana:
+#+BEGIN_EXAMPLE
+		       +-------------------------+   +-------------------+
+		       |  WindowFocusListener (I)|---|  WindowAdapter (C)|
+		       +-------------------------+   +-------------------+
+				       |
+				       |
++-----------------------------------+  |   +---------------------------------+
+|windowGainedFocus(FocusEvent e) (M)|--+---|windowLostFocus(FocusEvent e) (M)|
++-----------------------------------+      +---------------------------------+
+#+END_EXAMPLE
+
+En este paquete se da un ejemplo de perdida y ganancia de foco con
+componentes, haciendo que cuando un JTextField cambia hacia otro se
+haga algo en la consola.
+
+*** [[[https://www.youtube.com/watch?v%3DNvNZNEVWYO8&index%3D75&list%3DPLU8oAlHdN5BktAXdEVCLUYzvDyqRQJ2lk][video75]]] Eventos XI. Eventos de foco II
+En este paquete se muestra la perdida y ganancia de foco pero con
+ventanas. Se crean dos JFrames y que muestre un mensaje en la barra de
+titulo el JFrame que tenga el foco.
+
+
+** Multiples fuentes de eventos
+
+*** [[[https://www.youtube.com/watch?v%3DYSCNtyNqizk&index%3D76&list%3DPLU8oAlHdN5BktAXdEVCLUYzvDyqRQJ2lk][video76]]] Eventos XII. Múltiples fuentes I
+Por ejemplo cuando se quiere poner en negrita una palabra en
+Word. Para esto puede haber dos fuentes. Una es el botón de
+negrita. La otra fuente podría ser la tecla Ctrl+N. Entonces tenemos
+dos fuentes para un mismo oyente que ejecute la acción de poner la
+palabra en negrita.
+
+Para esto se utiliza la interfaz =Action= de la API de Java.
+
+#+BEGIN_EXAMPLE
+ +-----------------------------------+	    +-----------+     +------------------+
+ |actionPerformed(ActionEvent evento)|------|Action (I) |     | AbstractAction(C)|
+ +-----------------------------------+	    +-----------+     +------------------+
+					        |     
+ +--------------------------+			|	+-----------------------+
+ |setEnabled(boolean b) (M) |-------------------+-------|isEnable(boolean b) (M)|
+ +--------------------------+		        |	+-----------------------+
+					        |
+ +----------------------------------------+     |      +----------------------------+
+ |putValue(String clave, Object valor) (M)|-----+------| getValue(String clave) (M) |
+ +----------------------------------------+     |      +----------------------------+
+					        |
+ +---------------------------------+	       	| 	+----------------------------------+
+ |addPropertyChangedListener(Proper|            |       |removePropertyChangedListener(Pro |
+ |tyChangedListener oyente) (M)    |------------+-------|pertyChangedListener oyente)  (M) |
+ +---------------------------------+		 	+----------------------------------+
+#+END_EXAMPLE
+
+La clase =AbstractAction= implementa seis métodos de la interfaz
+=Action=, y no implementa el método =actionPerformed(ActionEvent
+e)=. Con esto, si no queremos programar los seis métodos al
+implementar en alguna nuestra clase, lo que tendríamos que hacer, en
+su lugar, es heredar de =AbstractAction= y luego sobre escribir el
+método que queramos programar en nuestra clase.
+
+En este paquete se crea un JPanel que tiene tres botones y pulsando en
+cada uno de ellos el JPanel se pintara de un color dependiendo de que
+botón fue pulsado. Esto es lo mismo de lo que se hizo en los paquetes
+~video66~ y ~video67~ solo que, aquí, con la novedad de que también se
+pintará si se realiza una combinación de teclas.
+
+*** [[[https://www.youtube.com/watch?v%3D8FQnwZrr8Ck&index%3D77&list%3DPLU8oAlHdN5BktAXdEVCLUYzvDyqRQJ2lk][video77]]] Eventos XIII. Múltiples fuentes II
+continua con el ejemplo del ~video76~. 
+
+*** [[[https://www.youtube.com/watch?v%3DsY1CWJlqsSU&index%3D78&list%3DPLU8oAlHdN5BktAXdEVCLUYzvDyqRQJ2lk][video78]]] Eventos XIV. Múltiples fuentes III
+continua con el ejemplo del ~video77~. Hasta es este punto se han
+creado tres botones con una imagen, una descripción que aparece cuando
+se pune el cursor sobre el botón y un texto. Cuando se da click a
+culquier botón, se pinta el fondo con el color que indique el botón.
+
+Faltaría pues (se hace en el siguiente video) que además de que el
+fondo cambie cuando se le da click en el botón correspondiente,
+también ejecute la acción cuando se presione cierta combinación de
+teclas.
+
+*** [[[https://www.youtube.com/watch?v%3DNkyt5DT2mA0&list%3DPLU8oAlHdN5BktAXdEVCLUYzvDyqRQJ2lk&index%3D79][video79]]] Eventos XV. Múltiples fuentes IV
+
+Lo que se hace en este paquete es tener un objeto oyente, que seguirá
+siendo el JPanel, pero tener dos objetos fuente, es decir, además de
+el correspondiente botón, pues, también asignar como segundo objeto
+fuente de evento, una combinación de eventos. Por ejemplo con Ctrl+A
+se pinte el fondo de amarillo, con Ctrl+B de azul y Ctrl+R de rojo.
+
+Con esto tendríamos que la acción de pintar el fondo del JPanel puede
+realizarse de dos formas diferentes: desde sus botones
+correspondientes y desde una combinación de teclas.
+
+Los pasos ha seguir para realizar la asignación de acciones al teclado
+son:
+
+1. Crear mapa de entrada. Cual va a ser el objeto que tenga el foco,
+   sobre que objeto va ha insidir la combinación de teclas. Las clases
+   que se utilizan en este paso son: =InputMap=, =getInputMap(int
+   condicion)= de la clase =JComponenet=.
+2. Crear combinación de teclas. Las clases que se utiliza =static
+   getKeyStroke(String s)= de la clase =KeyStroke=.
+3. Asignar combinación de teclas a objeto. La clase que se utiliza:
+   =put(KeyStroke, Object)=.
+4. Asignar objeto a acción. Se utiliza =put(Object, accion)= de la
+   clase =ActionMap=.
+
+*** [[[https://www.youtube.com/watch?v%3DsmJg5QjlBpU&list%3DPLU8oAlHdN5BktAXdEVCLUYzvDyqRQJ2lk&index%3D80][video80]]] Eventos XVI. Múltiples oyentes
+
+#+BEGIN_EXAMPLE
+							     +----------+
+  +--------+						     | Oyente 1 |
+  |Fuente 1|--					  evento   /-+----------+
+  +--------+  \-evento				         /-  
+	        \-				      /--    
+		  \-				    /-	     
+  +--------+  evento\+--------+		+--------+-- evento  +----------+
+  |Fuente 2|---------| Oyente |		|Fuente 1|-----------|Oyente 2  |
+  +--------+	    /+--------+		+--------+  	     +----------+
+		  /-				  -\	     
+	        /-				    -\ evento
+	       /evento				      --\
+  +--------+ /-						 -\  +----------+
+  |Fuente 3|/						   --| Oyente 3 |
+  +--------+						     +----------+
+#+END_EXAMPLE
+
+Siguiendo el ejemplo del ~video79~ teníamos un oyente que era el
+JPanel que cambiaba de color. Teníamos dos fuentes. Una era el botón
+del color correspondiente y la otra era el teclado.
+
+Lo que se ve en este paquete es un escenario que es justamente lo
+contrario. Es decir tener una unica fuente, esta fuente descencadena
+un evento, y este evento es escuchado por varios oyentes.
+
+Va a consistir en un marco (JFrame) que tendra dos botones. Un botón
+nuevo y un botón de cerrar. Cuando pulsemos en el botón de /nuevo/ que
+genere una ventana nueva. Cuando se presione el botón cerrar va ha
+descencadenar un evento, este evento va ha ser escuchado por tres
+oyentes diferentes (las ventanas abiertas con el botón /nuevo/).
+
+* Layouts
+
+** [[[https://www.youtube.com/watch?v%3DFr8lqCKwjmM&index%3D81&list%3DPLU8oAlHdN5BktAXdEVCLUYzvDyqRQJ2lk][video81]]] Layouts I. Componentes Swing
+Se crean tres botones y se utiliza la clase =FlowLayout= para posicionar
+los componenetes dentro de un JPanel que esta dentro del JFrame
+principal.
+
+** [[[https://www.youtube.com/watch?v%3DFAOGZuvvwrE&list%3DPLU8oAlHdN5BktAXdEVCLUYzvDyqRQJ2lk&index%3D82][video82]]] Layouts II
+Se crean cinco JButton's y se disponen en dos paneles llamados
+~PanelLayout~ y ~PanelLayout2~ luego estos cinco botones se dispones
+en los dos paneles y se les aplica diferentes disposiciones
+=FlowLayout= y =BorderLayout=.
+
+Por defecto los componentes se encuentran en disposición =FlowLayout=
+y centrado.
+
+** [[[https://www.youtube.com/watch?v%3DPy96zzymLA4&index%3D83&list%3DPLU8oAlHdN5BktAXdEVCLUYzvDyqRQJ2lk][video83]]] Layouts III
+En este paquete se ve otra disposición denominada =GridLayout=, que lo
+que hace es dejar nuestro contenedor en forma de rejilla. Es decir,
+dejarlo en una especie de filas y columnas de tal forma nos quedan una
+especie de celdas para colocar en ellos los componentes Swing.
+
+El ejemplo para aplicar el =GridLayout= es una calculadora, el cual,
+solo se deja hecho la interfaz gráfica, para continuar en el siguiente paquete.
+
+** [[[https://www.youtube.com/watch?v%3DsT7UZM8yliE&list%3DPLU8oAlHdN5BktAXdEVCLUYzvDyqRQJ2lk&index%3D84][video84]]] Layouts IV
+Se continua con el ejemplo, iniciado en el paquete anterior, de
+utilizar un =GridLayout= para realizar la interfaz gráfica de una
+calculadora. En este paquete se le añade la funcionalidad a los
+botones.
+
+Esta funcionalidad consiste en que cuando se pulsa un número, se
+muestre en la pantalla este número. Luego si se pulsa otro número se
+concatena el texto anterior con el actual.
+
+Los botones de operaciones (*,/,+,-) no se le agrega aún. Esto se hará
+en el próximo paquete.
+
+** [[[https://www.youtube.com/watch?v%3DQ2bzRMcE2Jk&list%3DPLU8oAlHdN5BktAXdEVCLUYzvDyqRQJ2lk&index%3D85][video85]]] Layouts V
+Se continua con la calculadora iniciada en el paquete ~video83~,
+y siguida en ~video84~.
+
+En este paquete se termina con la calculadora, poniendole
+puncionalidad a los botones de operaciones (*,/,+,-).
+
+* Componentes Swing
+
+** Cuadros de texto
+Cuando se dice "cuadros de texto" se puede referir a =JTextField= o
+bien a =JPasswordfield=. Por cierto que el segundo hereda del
+primero. Se caracterizan por tener una sola línea de texto.
+
+*** [[[https://www.youtube.com/watch?v%3Dpl_FZDDDPZY&index%3D86&list%3DPLU8oAlHdN5BktAXdEVCLUYzvDyqRQJ2lk][video86]]] Cuadros de texto I
+
+#+BEGIN_EXAMPLE
+		      +----------------------+   
+		      |  JTextComponent (CA) |   
+		      +----------------------+   
+				|	       
+				|	       
++-----------------------+	| 	       	+----------------+
+|void setText(String t) |-------+---------------| void getText() |
++-----------------------+    	| 		+----------------+
+				|
+				|
+				|
+				|
+	 +---------------+	|	       +---------------+
+	 | JTextField (C)|------+--------------| JTextArea (C) |
+	 +---------------+		       +---------------+
+
+(C): clase
+(CA): clase abstracta
+#+END_EXAMPLE
+
+En este paquete se crea un marco el cual pone un =JTextField= y un
+=JButton=. Cuando se le da click en el botón, captura el texto dentro
+del =JTextfield= y lo imprime en consola. La continuación de este
+ejemplo se realiza en el paquete ~video87~ para validar una dirección
+de correo electrónico  en el =JTextField=.
+
+*** [[[https://www.youtube.com/watch?v%3DFgt_ysSAXn8&list%3DPLU8oAlHdN5BktAXdEVCLUYzvDyqRQJ2lk&index%3D87][video87]]] Cuadros de texto II
+Se realiza la continuación del ejemplo el paquete ~video86~, y se le
+extiende colocando una validación de una dirección de e-mail en
+función de que si tiene '@' o no la tiene.
+
+*** [[[https://www.youtube.com/watch?v%3D-Q_gHYLTRPQ&index%3D88&list%3DPLU8oAlHdN5BktAXdEVCLUYzvDyqRQJ2lk][video88]]] Eventos en cuadros de texto I
+Cambios en un =JTextField=. ¿Cómo gestionamos el evento?
+
+#+BEGIN_EXAMPLE
+ +-------------------+						      +-------------------+
+ |JTextComponent (CA)|--------+			            +---------|ReceptoraEvento (C)|
+ +-------------------+	      |				    |	      +-------------------+
+	   |		+-------------+		 +---------------------+
+	   | 		|getDocument()|		 | DocumentListener (I)|
+	   | 		+-------------+		 +---------+-----------+
+	   |						   |	   
+    +--------------+					   |	   +--------------+
+    |JTextField (C)|	      +-------+			   +-------|removeUpdate()|
+    +--------------+	      | ---  \|			   |	   +--------------+
+			      | ---   |			   |	   +---------------+
+			      | ---   |			   +-------|insertUpdate() |
+			      +-------+			   |	   +---------------+
+ +---------------------+    +------------+		   |	   +---------------+
+ |addDocumentListener()|----|Document (I)|		   +-------|changedUpdate()|
+ +---------------------+    +------------+			   +---------------+
+
+CA: clase abstracta
+I: interface
+C: clase
+#+END_EXAMPLE
+
+~Document~ es una representación del texto que tiene el =JTextField=.
+
+El método =removeUpdate()= se ejecuta cuando dentro del =JTextField=
+se elimina texto.
+
+El método =insertUpdate()= se ejecuta cuando dentro del =JTextField=
+se inserta texto.
+
+El método =changedUpdate()= se ejecuta, cuando el textro dentro del
+=JTextField=, modifica alguna de sus propiedades (negritas, cursiva,
+tamaños, etc).
+
+La clase =JTextField= tiene el método =getDocument()= que aplicandolo
+sobre un objeto =JTextField= lo que hace es devolvernos un =Document=
+y a ese =Document= le podemos aplicar el método =addDocumentListener=.
+
+En este paquete se crea un =JFrame= con un =JPanel= conteniendo un
+=JTextfield=. A este último se le pone ha la escucha para que muestre
+por consola cuando se ha añadido texto y cuando se le ha borrado texto
+al mismo.
+
+*** [[[https://www.youtube.com/watch?v%3DuQWVgMeOeHw&index%3D89&list%3DPLU8oAlHdN5BktAXdEVCLUYzvDyqRQJ2lk][video89]]] Eventos en cuadros de texto II
+Se labora un ejemplo un poco más práctico con eventos para cuadros de
+texto. Una aplicación gráfica que tenga un nombre de usuario, una
+constraseña, esa contraseña deba de contener entre 8 y 12 caracteres y
+en caso de que estemos introduciendo una contraseña con caracteres
+incorrectos, pues, que la aplicación gráfica nos avise. 
+
+El control para el cuadro de texto para contraseña es un
+=JPasswordField=.
+
+Mientras no se cumple el requisito que se muestre el fondo del
+=JPasswordField= en rojo y cambie a blanco cuando ya cumpla.
+
+** Áreas de texto
+Cuando se dice "áreas de texto" refiere a =JTextArea=. Se
+caracterizan por admitir varias líneas de texto.
+
+*** [[[https://www.youtube.com/watch?v%3DqVDzPPUfpLI&list%3DPLU8oAlHdN5BktAXdEVCLUYzvDyqRQJ2lk&index%3D90][video90]]] Áreas de texto I
+#+BEGIN_EXAMPLE
+		       +---------------+		      
+	+--------------+ JTextArea (C) |-----------------------
+	|              +---------------+		      |
+	|			|			      |
+	|			|			      |
+ +-----------+	     +---------------------+	       +---------------+
+ | getText() |	     | setLineWrap(boolean)| 	       | getLineWrap() |
+ +-----------+	     +---------------------+	       +---------------+
+
+(C): clase
+#+END_EXAMPLE
+
+El método =getText()= devulve el texto que hay escrito en el área de
+texto.
+
+El método =setLineWrap()= establece si el área de texto tiene saltos
+de línea o no los tiene.
+
+El método =getLineWrap()= nos dice si el área de texto que estamos
+evaluando tiene o no tiene saltos de línea.
+
+Se contruye en un =JFrame= que tiene un =JPanel= con un
+=JTextArea=. En el último el usuario escribirá. A continuación un
+botón que pulsando en él nos pondrá en consola el texto que tiene el
+área de texto.
+
+*** [[[https://www.youtube.com/watch?v%3DeOblXyMw9wE&index%3D91&list%3DPLU8oAlHdN5BktAXdEVCLUYzvDyqRQJ2lk][video91]]] Áreas de texto II
+Un ejemplo un poco más complejo. Se crea un =JTextArea= en la zona
+central. En la parte inferior va un botón que inserta un texto por
+defecto. Un segundo botón que quitará saltos de línea en el área de
+texto.
+
+Se incluye un /concepto nuevo/ respecto a los layouts que es establecer
+un layout en el propio =JFrame= y no en un =Jpanel=, como se ha echo en
+los anteriores paquetes, sin agregar =JPanel=.
+
+Otra de las caracteristicas, en la codificación de este paquete, es
+que no se crean clases por aparte para las clases oyentes de los
+eventos de los botones, sino más bien se realiza todo en una clase.
+
+** CheckBox
+
+*** [[[https://www.youtube.com/watch?v%3DV-hmPZ8pDkM&index%3D92&list%3DPLU8oAlHdN5BktAXdEVCLUYzvDyqRQJ2lk][video92]]] CheckBox
+#+BEGIN_EXAMPLE
+		   +------------------+			
+		   |  	              |			
+	 +---------+   JCheckBox (C)  |----------------+
+	 |	   |                  |		       |
+	 |	   +------------------+		       |
+	 |					       |
+  +-------------+			      +---------------------+
+  | isSelected()|			      | setSelected(boolean)|
+  +-------------+			      +---------------------+
+
+ (C): clase
+#+END_EXAMPLE    
+
+Estos dos métodos los hereda de =javax.swing.AbstractButton=. 
+
+=isSelected()= permite determinar si la casilla de verificación estás
+seleccionada o no lo está.
+
+=setSelected()= permite seleccionar, desde código, seleccionar esa
+casilla o no seleccionarlo.
+
+En este paquete se establece un texto en la parte superior del marco y
+luego en la parte inferior de este marco que aparezcan los dos
+checkbox.
+
+Estos checkbox permiten modificar algunas características del texto
+que esta arriba, por ejemplo, el checkbox en la parte izquierda
+inferior va ha establecer letra negrita para el texto. El otro
+checkbox hace lo mismo pero con cursiva.
+
+** Botones de radio
+
+*** [[[https://www.youtube.com/watch?v%3DCWl3ihbT4I0&list%3DPLU8oAlHdN5BktAXdEVCLUYzvDyqRQJ2lk&index%3D93][video93]]] Botones de radio I
+Los botones de radio son como los checkbox pero redondos. La
+diferencia esta en que los checkbox puedes seleccionar varios a la
+vez, mientras que los botones de radio solo una unica entre varias.
+
+
+Clases implicadas para construir este tipo de objetos
+#+BEGIN_EXAMPLE
++------------------+		  +------------------+
+| JRadioButton (C) |		  |  ButtonGroup (C) |
++------------------+		  +------------------+
+						      
+       O Azul			    +-----------------+
+				    |	  O Azul      |
+       O Verde			    |         	      |
+				    |     O Verde     |
+       O Rojo			    |		      |
+				    |     O Rojo      |
+				    |		      |
+				    +-----------------+
+#+END_EXAMPLE
+
+=JRadioButton= no permite construir uno de estos elementos, luego para
+adquirir el comportamiento de que solo uno es posible seleccionar, es
+menester utilizar la clase =Buttongroup=.
+
+En este paquete se crean dos grupos de botones de radio. El primer
+grupo son: azul, verde y rojo. El segundo grupo son: masculino y
+feminino. Solo se crean las interfaces gráficas sin funcionalidad.
+
+*** [[[https://www.youtube.com/watch?v%3DDxrcffniQKQ&index%3D94&list%3DPLU8oAlHdN5BktAXdEVCLUYzvDyqRQJ2lk][video94]]] Botones de radio II
+
+En el centro del marco se coloca un texto.
+
+En la parte inferior cuatro botones de radio etiquetados con pequeño,
+mediano, grande y muy grande. Cuando se pulsa en algun boton de radio
+el texto central cambia de tamaño conforme su etiqueta lo indique.
+
+** ComboBox
+*** [[[https://www.youtube.com/watch?v%3DMYdAW9f7YHk&list%3DPLU8oAlHdN5BktAXdEVCLUYzvDyqRQJ2lk&index%3D95][video95]]] ComboBox
+
+#+BEGIN_EXAMPLE
+		    +----------------+		      
+       +------------|  JComboBox (C) |---------------+
+       |	    +----------------+		     |
+       |					     |
+       |					     |
+  +-----------+				   +--------------------+
+  | addItem() |				   |  getSelectedItem() |
+  +-----------+				   +--------------------+
+
+(C): clase
+#+END_EXAMPLE
+
+=addItem()= no permite agregar elementos al menú desplegable
+
+=getSelectedItem()= no permite obtener el elemento seleccionado.
+
+En este paquete se crea un =JComboBox= en la parte superior
+conteniendo un listado de tipos de letra. 
+
+En el centro ira un texto por defecto.
+
+Cuando se selecciona un tipo de letra del =JComboBox= el texto central
+cambia de tipo de fuente de acuerdo al seleccionado.
+
+Además, al =JCombobox= se le establece como editable, mediante el
+método =setEditable(true)=, para hacer que el usuario pueda escribir
+la fuente que quiera y luego presionar enter para que cambie el texto
+central a ese tipo de fuente.
+
+IMPORTANTE: las fuentes listadas en el =JComboBox= son del sistema
+GNU/Linux por lo que si se quiere ejecutar en Windows se tendrá que
+cambiar estos tipos de fuente listados en el =JCombobox= o de lo
+contrario no realizará ninguna acción con se elija algún item.
+
+** JSlider
+
+*** [[[https://www.youtube.com/watch?v%3DXtoSO1yXgSc&list%3DPLU8oAlHdN5BktAXdEVCLUYzvDyqRQJ2lk&index%3D96][video96]]] JSlider I
+Los JSlider también conocidos como controles deslizantes. Es el tipo
+control que se puede deslizar de izquierda a derecha.
+
+#+BEGIN_EXAMPLE
+ 	               	 			+-----------------+
+                                       		|                 |
+             +----------------------------------|    JSlider (C)  |------------------------------------+
+             |                                  |                 |                                    |
+             |                   	        +-----------------+	     			       |
+             | 		 	            		 | 		        		       |
+ 	     | 		 		                 |        	  			       |
+ 	     | 		 		  +--------------+----------------+			       |
+ 	     | 		 		  |	                	  |			       |
+ +----------------------+     +-------------------------+   +------------------------+ 	   +-----------+------------+
+ |setPaintTicks(boolean)|     |setMajorTickSpacing(int) |   |setMinorTickSpacing(int)| 	   | setPaintLabels(boolean)|
+ +----------------------+     +-------------------------+   +------------------------+ 	   +------------------------+
+
+(C): clase
+#+END_EXAMPLE
+
+El método =setPaintTicks= se utiliza para imprimier las lineas de
+división.
+
+El método =setPaintLabels= se utiliza para que se impriman los valores
+numéricos.
+
+Los métodos =setMajorTickSpacing= y =setMinorTickSpacing= se utilizan
+para determinar de cuanto en cuanto van las marcas.
+
+En este paquete se crea un =JSlider= sin funcionalidad solo interfaz
+gráfica.
+
+*** [[[https://www.youtube.com/watch?v%3D3IV2SKV6H80&index%3D97&list%3DPLU8oAlHdN5BktAXdEVCLUYzvDyqRQJ2lk][video97]]] JSlider II
+Lo que vamos ha ver en este paquete es como agregar intactividad ha
+este componenete, es decir, arrastrando el =JSlider= responda a
+eventos, o desencadene acciones mejor dicho. Se comienza con lo hecho
+en el paquete anterior ~video96~.
+
+Especificamente se crean un =JSlider= en la parte superior y un texto
+central. A medida que cambie el =JSlider=, también lo hará en tamaño
+del texto central.
+
+Para controlar eventos el =JSlider= tiene el método
+=addChangedListener(ChangeListener)=.
+
+** JSpinner
+
+*** [[[https://www.youtube.com/watch?v%3D06acFKm-kcQ&list%3DPLU8oAlHdN5BktAXdEVCLUYzvDyqRQJ2lk&index%3D98][video98]]] JSpinner I
+Es un cuadro de texto con dos botones a la derecha que normalmente
+contiene datos de tipo número, para aumentar o disminuir los números
+con estos botones.
+
+Para crear un control con estas características se usa
+
+#+BEGIN_EXAMPLE
+		+------------------+					   
+		|                  |					   
+        +-------|     JSpinner (C) |-------------------+		   
+	|	|                  |		       |		   
+	|	+------------------+		       |		   
+	|			 		       |		   
+	|			 		       |		   
+	|			 		       |		   
+	|			 		       |		   
+  +--------------+		       +----------------------------------+
+  |Jspinner() (c)|		       | Jspinner(SpinnerModel modelo) (c)|
+  +--------------+		       +----------------------------------+
+
+(C) : clase 
+(c) : constructor
+#+END_EXAMPLE 
+
+Cuando se crea con el constructor por defecto =JSpinner()=, los
+valores son numéricos del 0 al infinito.
+
+Si se utiliza el segundo constructor =JSpinner(SpinnerModel modelo)=
+se puede modelar de tal forma que en vez de valores numéricos puedan
+ser de otros tipos como:
+
+- fechas (se usa la clase =SpinnerDateModel=)
+- valores de texto (se usa la clase =SpinnerListModel=)
+
+En este paquete se crean cuatro =JSpinner= utilizando las diferentes
+clases:
+
+- JSpinner de lista :: cuatro primeros meses del mes utilizando
+     =SpinnerListModel=.
+- JSpinner de fecha :: manipula fechas
+- JSpinner de lista de fuentes del sistema :: utiliza la misma clase
+     =SpinnerListModel= solo que la lista de cadenas es las fuentes
+     del sistema.
+- JSpinner de números :: maneja números como lo hace por defecto solo
+     que se utiliza la clase =SpinnerNumberModel= para tener un mejor
+     control. Aqui se le indica que comienze en cinco y vaya de dos en
+     dos. Como tope inferior se le indica a 0 y como tope superior se
+     le indica a 10
+
+Se colocaro estos controles solo para probar la interfaz que
+proporciona =JSpinner=. No se le añade Eventos. Los eventos con
+JSpinner se tratan en el siguiente paquete (~video99~).
+
+
+*** [[[https://www.youtube.com/watch?v%3DnOisCjNznaE&index%3D99&list%3DPLU8oAlHdN5BktAXdEVCLUYzvDyqRQJ2lk][video99]]] JSpinner II
+
+Se cambia el modelo del =JSpinner= para que, cuando se pulse el botón
+de arriba, se decremente en vez de incrementar y cuando se pulse el
+botón de abajo se incremente.
+
+Para hacer esto tenemos que crear nuestro propio modelo, porque en
+ninguno de los modelos, que podemos utilizar por defecto en java
+(=SpinnerListModel=, =SpinnerDateModel=, =SpinnerNumberModel=), hace
+que este comportamiento cambie.
+
+En este paquete tambien se trata en concepto nuevo, muy importante y
+quizá complejo: *las clases internas anónimas*.
+
+** [[[https://www.youtube.com/watch?v%3DL_QzjDWoKDo&index%3D100&list%3DPLU8oAlHdN5BktAXdEVCLUYzvDyqRQJ2lk][video100]]] Creación de menús I
+Para construir menús Swing, dentro de una aplicación Java, tenemos que
+manejar fundamentalmente las clases:
+- =JMenuBar=
+- =JMenu=
+- =JMenuItem=
+
+El =JMenuBar= sirve como elemento de soporte en donde se colocarán los
+objetos de =JMenu=. Y dentro de =JMenu= irán objetos de =JMenuItem=
+para formar una especie de pestañas.
+
